@@ -2,10 +2,7 @@ package org.ulpgc.dacd.control;
 
 import org.ulpgc.dacd.model.Weather;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
+import java.sql.*;
 import java.time.Instant;
 
 public class SqliteWeatherStore implements WeatherStore{
@@ -25,10 +22,12 @@ public class SqliteWeatherStore implements WeatherStore{
     public void createTableForIsland(String islandName) {
         try (PreparedStatement statement = connection.prepareStatement(
                 "CREATE TABLE IF NOT EXISTS " + islandName + " ("
-                        + "temperature REAL PRIMARY KEY, "
+                        + "instant TEXT PRIMARY KEY, "
+                        + "temperature REAL, "
                         + "precipitation REAL, "
                         + "humidity REAL, "
-                        + "windSpeed REAL)")) {
+                        + "windSpeed REAL, "
+                        + "clouds INT)")) {
             // Crea la tabla correspondiente a la isla si no existe
             statement.executeUpdate();
         } catch (SQLException e) {
@@ -39,23 +38,28 @@ public class SqliteWeatherStore implements WeatherStore{
 
     @Override
     public void insertWeatherData(String islandName, Weather data) {
-        Instant instant = data.getTs();
-
         try (PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO " + islandName + " (temperature, precipitation, humidity, windSpeed) "
-                        + "VALUES (?, ?, ?, ?)")) {
+                "INSERT INTO " + islandName + " (instant, temperature, precipitation, humidity, windSpeed, clouds) "
+                        + "VALUES (?, ?, ?, ?, ?, ?)")) {
             // Inserta los registros con los datos meteorológicos en la tabla correspondiente
             // long epochMilli = data.getTs().toEpochMilli();
             // statement.setString(1, String.valueOf(epochMilli));
             // statement.setString(2, String.valueOf(data.getLocation()));
-            statement.setDouble(1, data.getTemp());
-            statement.setDouble(2, data.getRain());
-            statement.setDouble(3, data.getHumidity());
-            statement.setDouble(4, data.getWind());
+            statement.setString(1, String.valueOf(data.getTs()));
+            statement.setDouble(2, data.getTemp());
+            statement.setDouble(3, data.getRain());
+            statement.setDouble(4, data.getHumidity());
+            statement.setDouble(5, data.getWind());
+            statement.setInt(6, data.getClouds());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void delete(Statement statement) throws SQLException {
+        statement.execute("DELETE FROM products\n" +
+                "WHERE id=1;");
     }
 
     public void closeConnection() {

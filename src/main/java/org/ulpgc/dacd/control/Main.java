@@ -16,9 +16,11 @@ public class Main {
         sqliteWeatherStore.connect("jdbc:sqlite:weather.db");
         sqliteWeatherStore.createTableForIsland("Lanzarote");
         sqliteWeatherStore.createTableForIsland("La_Gomera");
+        sqliteWeatherStore.createTableForIsland("Fuerteventura");
+        sqliteWeatherStore.createTableForIsland("test2");
 
         Timer timer = new Timer();
         long period = 6 * 60 * 60 * 1000; // 6 * 60 * 60 * 1000
-        timer.scheduleAtFixedRate(new WeatherController(openWeatherMapSupplier, sqliteWeatherStore, "La_Gomera"), 0, period);
+        timer.scheduleAtFixedRate(new WeatherController(openWeatherMapSupplier, sqliteWeatherStore, "test2"), 0, period);
     }
 }

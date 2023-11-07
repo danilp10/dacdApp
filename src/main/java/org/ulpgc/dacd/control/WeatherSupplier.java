@@ -7,8 +7,5 @@ import java.io.IOException;
 import java.time.Instant;
 
 public interface WeatherSupplier {
-
-    static void getWeather(Location location, Instant instant) throws IOException {
-
-    }
+    Weather getWeather(Location location, Instant instant) throws IOException;
 }
