@@ -68,13 +68,10 @@ public class OpenWeatherMapSupplier {
                 JsonObject main = item.getAsJsonObject("main");
                 double temperature = main.get("temp").getAsDouble();
                 int humidity = main.get("humidity").getAsInt();
-
                 JsonObject wind = item.getAsJsonObject("wind");
                 double windSpeed = wind.get("speed").getAsDouble();
-
                 JsonObject clouds = item.getAsJsonObject("clouds");
                 int allClouds = clouds.get("all").getAsInt();
-
                 double pop = item.get("pop").getAsDouble(); // No se necesita un objeto JSON para 'pop'
 
                 Weather weather = new Weather();
