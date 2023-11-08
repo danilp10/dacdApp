@@ -29,26 +29,22 @@ public class OpenWeatherMapSupplier {
         String lonParam = "lon=" + location.getLon();
         String urlStr = apiUrl + "?" + latParam + "&" + lonParam + "&" + apiKeyParam;
 
-        // Crea una conexión HTTP y abre un InputStream para leer la respuesta
         URL url = new URL(urlStr);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         InputStream inputStream = connection.getInputStream();
 
-        // Lee la respuesta de la API
         Scanner scanner = new Scanner(inputStream);
         StringBuilder responseBody = new StringBuilder();
         while (scanner.hasNextLine()) {
             responseBody.append(scanner.nextLine());
         }
-        // System.out.println(responseBody.toString());
         scanner.close();
 
-        // Parsea la respuesta JSON para obtener los datos meteorológicos
-        List<Weather> weatherData = parseWeatherDataFromJson(responseBody.toString());
+        List<Weather> weathers2 = parseWeatherDataFromJson(responseBody.toString());
 
         connection.disconnect();
 
-        return weatherData;
+        return weathers2;
     }
 
     private static List<Weather> parseWeatherDataFromJson(String json) {

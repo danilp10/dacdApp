@@ -20,21 +20,16 @@ public class WeatherController extends TimerTask{
 
     @Override
     public void run() {
-        // Obtén las ubicaciones de las islas
         Location[] locations = Main.getLocations();
 
-        // Realiza consultas para los próximos 5 días a las 12 p.m. para cada isla
         for (Location location : locations) {
             for (int i = 0; i < 5; i++) {
-                // Calcula la fecha de consulta para el día actual y los siguientes
                 Instant scheduledInstant = Instant.now().truncatedTo(ChronoUnit.DAYS)
                         .plus(i, ChronoUnit.DAYS).plus(12, ChronoUnit.HOURS);
 
                 try {
                     List<Weather> weather = openWeatherMapSupplier.getWeather(location, scheduledInstant);
-                    // Asegúrate de que la tabla exista antes de insertar los datos
                     sqliteWeatherStore.createTableForIsland(location.getIsland());
-                    // Inserta los datos meteorológicos en la tabla correspondiente
                     for (Weather data : weather) {
                         sqliteWeatherStore.insertWeather(location.getIsland(), data);
                     }

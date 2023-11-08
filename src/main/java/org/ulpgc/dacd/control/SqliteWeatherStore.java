@@ -28,10 +28,8 @@ public class SqliteWeatherStore implements WeatherStore{
                         + "humidity INT, "
                         + "windSpeed REAL, "
                         + "clouds INT)")) {
-            // Crea la tabla correspondiente a la isla si no existe
             statement.executeUpdate();
         } catch (SQLException e) {
-            // Maneja las excepciones al ejecutar las sentencias SQL
             e.printStackTrace();
         }
     }
@@ -41,7 +39,6 @@ public class SqliteWeatherStore implements WeatherStore{
         boolean recordExists = recordExists(islandName, data.getTs());
         try {
             if (recordExists) {
-                // Actualiza el registro existente en lugar de insertar uno nuevo
                 try (PreparedStatement statement = connection.prepareStatement(
                         "UPDATE " + islandName + " SET temperature=?, precipitation=?, humidity=?, windSpeed=?, clouds=? WHERE date=?")) {
                     statement.setDouble(1, data.getTemp());
@@ -53,7 +50,6 @@ public class SqliteWeatherStore implements WeatherStore{
                     statement.executeUpdate();
                 }
             } else {
-                // Inserta un nuevo registro
                 try (PreparedStatement statement = connection.prepareStatement(
                         "INSERT INTO " + islandName + " (date, temperature, precipitation, humidity, windSpeed, clouds) "
                                 + "VALUES (?, ?, ?, ?, ?, ?)")) {
@@ -78,7 +74,7 @@ public class SqliteWeatherStore implements WeatherStore{
             return result.next() && result.getInt(1) > 0;
         } catch (SQLException e) {
             e.printStackTrace();
-            return false; // Si hay un error, asumimos que el registro no existe
+            return false;
         }
     }
 
