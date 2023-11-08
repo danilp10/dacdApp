@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/InstantAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/SqliteWeatherStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/model/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/model/Weather.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/JsoupTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/weather.db" afterDir="false" />
-    </list>
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Atributes of JsonObject filtered" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +19,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="253ed68c77c1f2843f22a1e26df1521ede8547e4" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -47,18 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/DANI/IdeaProjects/jdbc(1)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "inlay.hints"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/DANI/IdeaProjects/jdbc(1)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.ulpgc.dacd.control" />
@@ -89,6 +78,9 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.JsoupTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.JsoupTest" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -101,7 +93,48 @@
       <option name="presentableId" value="Default" />
       <updated>1698685694168</updated>
     </task>
+    <task id="LOCAL-00001" summary="API data is being readen, and database conection has been created">
+      <option name="closed" value="true" />
+      <created>1699299135268</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699299135269</updated>
+    </task>
+    <task id="LOCAL-00002" summary="API data is being readen, and database conection has been created">
+      <option name="closed" value="true" />
+      <created>1699299154151</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699299154151</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Atributes of JsonObject filtered">
+      <option name="closed" value="true" />
+      <created>1699371059690</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699371059690</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="API data is being readen, and database conection has been created" />
+    <MESSAGE value="Atributes of JsonObject filtered" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atributes of JsonObject filtered" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -109,6 +142,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.io.IOException" package="java.io" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
