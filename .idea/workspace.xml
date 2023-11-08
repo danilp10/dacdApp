@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Atributes of JsonObject filtered">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some details corrected" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699371059690</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="some details corrected">
+      <option name="closed" value="true" />
+      <created>1699463326941</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699463326941</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +142,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="API data is being readen, and database conection has been created" />
     <MESSAGE value="Atributes of JsonObject filtered" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atributes of JsonObject filtered" />
+    <MESSAGE value="some details corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="some details corrected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
