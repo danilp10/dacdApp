@@ -10,16 +10,19 @@ import org.ulpgc.dacd.model.Weather;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Instant;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class OpenWeatherMapSupplier {
-    private List<Weather> cache;
+    private List<Weather> weathers;
 
-    public static Weather getWeather(Location location, Instant instant) throws IOException {
+    public static List<Weather> getWeather(Location location, Instant instant) throws IOException {
         String apiUrl = "https://api.openweathermap.org/data/2.5/forecast";
         String apiKeyParam = "appid=" + "3f7e30bbced203f4b907d03ba08d8ac6";
         String latParam = "lat=" + location.getLat();
@@ -34,45 +37,62 @@ public class OpenWeatherMapSupplier {
         // Lee la respuesta de la API
         Scanner scanner = new Scanner(inputStream);
         StringBuilder responseBody = new StringBuilder();
-        while (scanner.hasNext()) {
-            responseBody.append(scanner.next());
+        while (scanner.hasNextLine()) {
+            responseBody.append(scanner.nextLine());
         }
+        // System.out.println(responseBody.toString());
         scanner.close();
 
         // Parsea la respuesta JSON para obtener los datos meteorológicos
-        Weather weatherData = parseWeatherDataFromJson(responseBody.toString());
+        List<Weather> weatherData = parseWeatherDataFromJson(responseBody.toString());
 
         connection.disconnect();
 
         return weatherData;
     }
 
-    private static Weather parseWeatherDataFromJson(String json) {
+    private static List<Weather> parseWeatherDataFromJson(String json) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Instant.class, new InstantAdapter())
                 .create();
-        JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
 
+        JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
         JsonArray list = jsonObject.getAsJsonArray("list");
 
-        if (!list.isEmpty()) {
-            JsonObject firstItem = list.get(0).getAsJsonObject();
+        List<Weather> weathers = new ArrayList<>();
 
-            String dtTxt = firstItem.get("dt_txt").getAsString();
+        for (int i = 0; i < list.size(); i++) {
+            JsonObject item = list.get(i).getAsJsonObject();
+            String dtTxt = item.get("dt_txt").getAsString();
+            dtTxt = dtTxt.substring(0, 10) + "T" + dtTxt.substring(11) + "Z";
             Instant instant = Instant.parse(dtTxt);
+            instant = instant.truncatedTo(ChronoUnit.SECONDS);
 
-            JsonObject filteredJson = new JsonObject();
-            filteredJson.addProperty("dt_txt", instant.toString());
-            filteredJson.addProperty("temp", "temp");
-            filteredJson.addProperty("pop", "pop");
-            filteredJson.addProperty("humidity", "humidity");
-            filteredJson.addProperty("speed", "speed");
-            filteredJson.addProperty("clouds", "clouds");
+            if (instant.atZone(ZoneId.of("UTC")).toLocalTime().equals(LocalTime.of(12, 0))) {
+                JsonObject main = item.getAsJsonObject("main");
+                double temperature = main.get("temp").getAsDouble();
+                int humidity = main.get("humidity").getAsInt();
 
-            return gson.fromJson(filteredJson, Weather.class);
-        } else {
-            return null;
+                JsonObject wind = item.getAsJsonObject("wind");
+                double windSpeed = wind.get("speed").getAsDouble();
+
+                JsonObject clouds = item.getAsJsonObject("clouds");
+                int allClouds = clouds.get("all").getAsInt();
+
+                double pop = item.get("pop").getAsDouble(); // No se necesita un objeto JSON para 'pop'
+
+                Weather weather = new Weather();
+                weather.setTs(Instant.parse(dtTxt));
+                weather.setTemp(temperature);
+                weather.setHumidity(humidity);
+                weather.setWindSpeed(windSpeed);
+                weather.setClouds(allClouds);
+                weather.setRain(pop);
+                weathers.add(weather);
+            }
         }
+
+        return weathers;
     }
 
 }

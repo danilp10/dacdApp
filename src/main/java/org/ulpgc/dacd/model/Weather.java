@@ -8,22 +8,8 @@ public class Weather {
     private double rain;
     private double windSpeed;
     private double temp;
-    private double humidity;
+    private int humidity;
     private int clouds;
-
-    public Weather(Instant ts, Location location, double rain, double windSpeed, double temp, double humidity, int clouds) {
-        if (ts == null) {
-            this.ts = Instant.now();
-        } else {
-            this.ts = ts;
-        }
-        this.location = location;
-        this.rain = rain;
-        this.windSpeed = windSpeed;
-        this.temp = temp;
-        this.humidity = humidity;
-        this.clouds = clouds;
-    }
 
     public Instant getTs() {
         return ts;
@@ -49,14 +35,6 @@ public class Weather {
         this.rain = rain;
     }
 
-    public double getWind() {
-        return windSpeed;
-    }
-
-    public void setWind(double windSpeed) {
-        this.windSpeed = windSpeed;
-    }
-
     public double getTemp() {
         return temp;
     }
@@ -65,11 +43,11 @@ public class Weather {
         this.temp = temp;
     }
 
-    public double getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(double humidity) {
+    public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
 

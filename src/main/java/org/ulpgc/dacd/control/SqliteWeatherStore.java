@@ -22,10 +22,10 @@ public class SqliteWeatherStore implements WeatherStore{
     public void createTableForIsland(String islandName) {
         try (PreparedStatement statement = connection.prepareStatement(
                 "CREATE TABLE IF NOT EXISTS " + islandName + " ("
-                        + "instant TEXT PRIMARY KEY, "
+                        + "date TEXT PRIMARY KEY, "
                         + "temperature REAL, "
                         + "precipitation REAL, "
-                        + "humidity REAL, "
+                        + "humidity INT, "
                         + "windSpeed REAL, "
                         + "clouds INT)")) {
             // Crea la tabla correspondiente a la isla si no existe
@@ -37,29 +37,57 @@ public class SqliteWeatherStore implements WeatherStore{
     }
 
     @Override
-    public void insertWeatherData(String islandName, Weather data) {
-        try (PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO " + islandName + " (instant, temperature, precipitation, humidity, windSpeed, clouds) "
-                        + "VALUES (?, ?, ?, ?, ?, ?)")) {
-            // Inserta los registros con los datos meteorológicos en la tabla correspondiente
-            // long epochMilli = data.getTs().toEpochMilli();
-            // statement.setString(1, String.valueOf(epochMilli));
-            // statement.setString(2, String.valueOf(data.getLocation()));
-            statement.setString(1, String.valueOf(data.getTs()));
-            statement.setDouble(2, data.getTemp());
-            statement.setDouble(3, data.getRain());
-            statement.setDouble(4, data.getHumidity());
-            statement.setDouble(5, data.getWind());
-            statement.setInt(6, data.getClouds());
-            statement.executeUpdate();
+    public void insertWeather(String islandName, Weather data) {
+        boolean recordExists = recordExists(islandName, data.getTs());
+        try {
+            if (recordExists) {
+                // Actualiza el registro existente en lugar de insertar uno nuevo
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "UPDATE " + islandName + " SET temperature=?, precipitation=?, humidity=?, windSpeed=?, clouds=? WHERE date=?")) {
+                    statement.setDouble(1, data.getTemp());
+                    statement.setDouble(2, data.getRain());
+                    statement.setInt(3, data.getHumidity());
+                    statement.setDouble(4, data.getWindSpeed());
+                    statement.setInt(5, data.getClouds());
+                    statement.setString(6, String.valueOf(data.getTs()));
+                    statement.executeUpdate();
+                }
+            } else {
+                // Inserta un nuevo registro
+                try (PreparedStatement statement = connection.prepareStatement(
+                        "INSERT INTO " + islandName + " (date, temperature, precipitation, humidity, windSpeed, clouds) "
+                                + "VALUES (?, ?, ?, ?, ?, ?)")) {
+                    statement.setString(1, String.valueOf(data.getTs()));
+                    statement.setDouble(2, data.getTemp());
+                    statement.setDouble(3, data.getRain());
+                    statement.setInt(4, data.getHumidity());
+                    statement.setDouble(5, data.getWindSpeed());
+                    statement.setInt(6, data.getClouds());
+                    statement.executeUpdate();
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    private static void delete(Statement statement) throws SQLException {
-        statement.execute("DELETE FROM products\n" +
-                "WHERE id=1;");
+    private boolean recordExists(String islandName, Instant ts) {
+        try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM " + islandName + " WHERE date=?")) {
+            statement.setString(1, String.valueOf(ts));
+            ResultSet result = statement.executeQuery();
+            return result.next() && result.getInt(1) > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false; // Si hay un error, asumimos que el registro no existe
+        }
+    }
+
+    public void deleteTableForIsland(String islandName) {
+        try (PreparedStatement statement = connection.prepareStatement("DROP TABLE IF EXISTS " + islandName)) {
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void closeConnection() {

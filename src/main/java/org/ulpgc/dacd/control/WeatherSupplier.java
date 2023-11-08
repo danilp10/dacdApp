@@ -5,7 +5,8 @@ import org.ulpgc.dacd.model.Weather;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.util.List;
 
 public interface WeatherSupplier {
-    Weather getWeather(Location location, Instant instant) throws IOException;
+    List<Weather> getWeather(Location location, Instant instant) throws IOException;
 }
