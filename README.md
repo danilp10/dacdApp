@@ -1,5 +1,14 @@
 # Weather Prediction Java Application
 
+## Front Page
+
+- **Tittle:** Weather Prediction Java Application
+- **Subject:** Development of applications for Data Science (DACD)
+- **Course:** 2º
+- **Degree:** Degree in Data Science and Engineering (GCID)
+- **School:** Computer Engineering School (EII)
+- **University:** Las Palmas de Gran Canaria University (ULPGC)
+
 ## Description
 
 The Weather Prediction Java Application periodically fetches weather predictions from the OpenWeatherMap API and stores them in an SQLite database. It provides forecasts for multiple islands, including temperature, precipitation probability, humidity, clouds, and wind speed for the next 5 days at 12:00 p.m.
@@ -21,6 +30,9 @@ The project is structured into different packages:
 - `org.ulpgc.dacd.model:` Contains model classes representing locations and weather data.
 
 - `org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, and storing data in the database.
+
+## Class diagram
+   
 
 ## Prerequisites
 
