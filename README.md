@@ -16,7 +16,7 @@ The Weather Prediction Java Application periodically fetches weather predictions
 
 ## Project Structure
 
-The project is structured into several packages:
+The project is structured into different packages:
 
 - `org.ulpgc.dacd.model:` Contains model classes representing locations and weather data.
 
