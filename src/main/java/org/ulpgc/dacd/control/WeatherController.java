@@ -21,7 +21,6 @@ public class WeatherController extends TimerTask{
     @Override
     public void run() {
         Location[] locations = Main.getLocations();
-
         for (Location location : locations) {
             for (int i = 0; i < 5; i++) {
                 Instant scheduledInstant = Instant.now().truncatedTo(ChronoUnit.DAYS)
