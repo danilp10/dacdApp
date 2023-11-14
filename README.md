@@ -32,7 +32,8 @@ The project is structured into different packages:
 - `org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, and storing data in the database.
 
 ## Class diagram
-   
+   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/e0164528-0fd4-40dc-a711-eb15e7121f4f)
+
 
 ## Prerequisites
 
