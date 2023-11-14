@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some details modified in WeatherController">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some unnecessary attributes deleted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" afterPath="$PROJECT_DIR$/weather.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +30,28 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "searchQuery": "main",
+      "state": "OPEN",
+      "assignee": "danilp10"
+    }
+  ],
+  "lastFilter": {
+    "searchQuery": "main",
+    "state": "OPEN",
+    "assignee": "danilp10"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="ecf779f5-5f46-4eb9-a08d-dd8ec1179bb1" />
+        <option name="url" value="https://github.com/danilp10/dacdFirstPractice.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -157,7 +179,23 @@
       <option name="project" value="LOCAL" />
       <updated>1699872097414</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="some details modified in OpenWeatherMapSupplier">
+      <option name="closed" value="true" />
+      <created>1699952578533</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699952578533</updated>
+    </task>
+    <task id="LOCAL-00009" summary="some unnecessary attributes deleted">
+      <option name="closed" value="true" />
+      <created>1699952642715</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699952642715</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,7 +203,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -176,7 +226,9 @@
     <MESSAGE value="Atributes of JsonObject filtered" />
     <MESSAGE value="some details corrected" />
     <MESSAGE value="some details modified in WeatherController" />
-    <option name="LAST_COMMIT_MESSAGE" value="some details modified in WeatherController" />
+    <MESSAGE value="some details modified in OpenWeatherMapSupplier" />
+    <MESSAGE value="some unnecessary attributes deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="some unnecessary attributes deleted" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

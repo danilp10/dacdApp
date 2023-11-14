@@ -26,7 +26,7 @@ public class OpenWeatherMapSupplier {
         String apiKeyParam = "appid=" + "3f7e30bbced203f4b907d03ba08d8ac6";
         String latParam = "lat=" + location.getLat();
         String lonParam = "lon=" + location.getLon();
-        String urlStr = apiUrl + "?" + latParam + "&" + lonParam + "&" + apiKeyParam;
+        String urlStr = apiUrl + "?" + latParam + "&" + lonParam + "&" + apiKeyParam + "&" + "units=metric";
 
         URL url = new URL(urlStr);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
