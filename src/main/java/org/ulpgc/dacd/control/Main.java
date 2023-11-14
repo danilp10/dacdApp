@@ -7,8 +7,6 @@ import java.util.Timer;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        String apikey = "3f7e30bbced203f4b907d03ba08d8ac6";
-
         OpenWeatherMapSupplier openWeatherMapSupplier = new OpenWeatherMapSupplier();
         SqliteWeatherStore sqliteWeatherStore = new SqliteWeatherStore();
         sqliteWeatherStore.connect("jdbc:sqlite:weather.db");

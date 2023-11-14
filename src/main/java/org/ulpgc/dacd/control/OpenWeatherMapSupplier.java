@@ -40,14 +40,14 @@ public class OpenWeatherMapSupplier {
         }
         scanner.close();
 
-        List<Weather> weathers2 = parseWeatherDataFromJson(responseBody.toString());
+        List<Weather> weathers2 = parseWeatherFromJson(responseBody.toString());
 
         connection.disconnect();
 
         return weathers2;
     }
 
-    private static List<Weather> parseWeatherDataFromJson(String json) {
+    private static List<Weather> parseWeatherFromJson(String json) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Instant.class, new InstantAdapter())
                 .create();
