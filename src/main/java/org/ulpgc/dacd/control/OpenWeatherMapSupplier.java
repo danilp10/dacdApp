@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OpenWeatherMapSupplier {
-    private List<Weather> weathers;
 
     public static List<Weather> getWeather(Location location, Instant instant) throws IOException {
         String apiUrl = "https://api.openweathermap.org/data/2.5/forecast";
