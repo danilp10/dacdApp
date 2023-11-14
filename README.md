@@ -1,6 +1,15 @@
 # Weather Prediction Java Application
 
-## Description
+## Front Page
+
+- **Tittle:** Weather Prediction Java Application
+- **Subject:** Development of applications for Data Science (DACD)
+- **Course:** 2º
+- **Degree:** Degree in Data Science and Engineering (GCID)
+- **School:** Computer Engineering School (EII)
+- **University:** Las Palmas de Gran Canaria University (ULPGC)
+
+## Functionality Summary and Description
 
 The Weather Prediction Java Application periodically fetches weather predictions from the OpenWeatherMap API and stores them in an SQLite database. It provides forecasts for multiple islands, including temperature, precipitation probability, humidity, clouds, and wind speed for the next 5 days at 12:00 p.m.
 
@@ -22,10 +31,27 @@ The project is structured into different packages:
 
 - `org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, and storing data in the database.
 
-## Prerequisites
+## Design
+
+###Design Patterns and Principles
+
+The project follows several design principles and uses common patterns to ensure modularity, extensibility, and code clarity. Some of the design principles used are SOLID (Single Responsibility Principle, Open/Closed Principle) and the use of patterns such as Observer for updating the database.
+
+### Class diagram
+   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/e0164528-0fd4-40dc-a711-eb15e7121f4f)
+
+### Dependency relationships
+
+1.`WeatherController` depends on `OpenWeatherMapSupplier` and `SqliteWeatherStore` to obtain and store weather data.
+2. `SqliteWeatherStore` interacts with the SQLite database for data persistence.
+3. The classes in `org.ulpgc.dacd.model` represent the fundamental entities of the system, such as `Location` and `Weather`.
+
+## Resources used
 
 - Java Development Kit (JDK) 8 or higher
 - SQLite database
+- Git
+- Markdown
 
 ## Getting Started
 
