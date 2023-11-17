@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="test" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some problems with gitHub should be already solved">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2023_17_01_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2023_17_01__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/SqliteWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/SqliteWeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ulpgc/dacd/model/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JsoupTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" afterPath="$PROJECT_DIR$/weather.db" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699952642715</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="some problems with gitHub should be already solved">
+      <option name="closed" value="true" />
+      <created>1699967162330</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699967162330</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,7 +223,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -224,7 +243,8 @@
     <MESSAGE value="some details modified in OpenWeatherMapSupplier" />
     <MESSAGE value="some unnecessary attributes deleted" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="some problems with gitHub should be already solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="some problems with gitHub should be already solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

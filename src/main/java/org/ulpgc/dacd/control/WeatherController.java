@@ -4,6 +4,7 @@ import org.ulpgc.dacd.model.Location;
 import org.ulpgc.dacd.model.Weather;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
@@ -32,28 +33,11 @@ public class WeatherController extends TimerTask{
                     for (Weather data : weather) {
                         sqliteWeatherStore.insertWeather(location.getIsland(), data);
                     }
-                } catch (IOException e) {
+                } catch (IOException | SQLException e) {
                     e.printStackTrace();
                 }
             }
         }
-    }
-
-
-    public OpenWeatherMapSupplier getOpenWeatherMapSupplier() {
-        return openWeatherMapSupplier;
-    }
-
-    public void setOpenWeatherMapSupplier(OpenWeatherMapSupplier openWeatherMapSupplier) {
-        this.openWeatherMapSupplier = openWeatherMapSupplier;
-    }
-
-    public SqliteWeatherStore getSqliteWeatherStore() {
-        return sqliteWeatherStore;
-    }
-
-    public void setSqliteWeatherStore(SqliteWeatherStore sqliteWeatherStore) {
-        this.sqliteWeatherStore = sqliteWeatherStore;
     }
 
 }

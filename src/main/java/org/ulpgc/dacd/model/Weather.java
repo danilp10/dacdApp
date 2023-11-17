@@ -19,14 +19,6 @@ public class Weather {
         this.ts = ts;
     }
 
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
     public double getRain() {
         return rain;
     }
@@ -65,5 +57,9 @@ public class Weather {
 
     public void setClouds(int clouds) {
         this.clouds = clouds;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }

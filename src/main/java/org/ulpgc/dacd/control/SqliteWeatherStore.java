@@ -1,12 +1,28 @@
 package org.ulpgc.dacd.control;
 
 import org.ulpgc.dacd.model.Weather;
+import org.ulpgc.dacd.control.WeatherStore;
 
 import java.sql.*;
 import java.time.Instant;
 
 public class SqliteWeatherStore implements WeatherStore{
     private Connection connection;
+
+    @Override
+    public void save(Weather weather) throws SQLException {
+        String islandName = weather.getLocation().getIsland();
+        boolean recordExists = recordExists(islandName, weather.getTs());
+        try {
+            if (recordExists) {
+                insertWeather(islandName, weather);
+            } else {
+                insertWeather(islandName, weather);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void connect(String databaseURL) throws SQLException {
         try {
@@ -18,7 +34,6 @@ public class SqliteWeatherStore implements WeatherStore{
         }
     }
 
-    @Override
     public void createTableForIsland(String islandName) {
         try (PreparedStatement statement = connection.prepareStatement(
                 "CREATE TABLE IF NOT EXISTS " + islandName + " ("
@@ -34,8 +49,7 @@ public class SqliteWeatherStore implements WeatherStore{
         }
     }
 
-    @Override
-    public void insertWeather(String islandName, Weather data) {
+    public void insertWeather(String islandName, Weather data) throws SQLException {
         boolean recordExists = recordExists(islandName, data.getTs());
         try {
             if (recordExists) {
@@ -67,14 +81,11 @@ public class SqliteWeatherStore implements WeatherStore{
         }
     }
 
-    private boolean recordExists(String islandName, Instant ts) {
+    public boolean recordExists(String islandName, Instant ts) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM " + islandName + " WHERE date=?")) {
             statement.setString(1, String.valueOf(ts));
             ResultSet result = statement.executeQuery();
             return result.next() && result.getInt(1) > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
         }
     }
 
@@ -95,4 +106,5 @@ public class SqliteWeatherStore implements WeatherStore{
             e.printStackTrace();
         }
     }
+
 }

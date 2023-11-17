@@ -14,24 +14,11 @@ public class Location {
     public double getLat() {
         return lat;
     }
-
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
     public double getLon() {
         return lon;
     }
-
-    public void setLon(double lon) {
-        this.lon = lon;
-    }
-
     public String getIsland() {
         return island;
     }
 
-    public void setIsland(String island) {
-        this.island = island;
-    }
 }
