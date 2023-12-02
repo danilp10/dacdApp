@@ -7,11 +7,10 @@ import java.util.Timer;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        OpenWeatherMapSupplier openWeatherMapSupplier = new OpenWeatherMapSupplier();
-        SqliteWeatherStore sqliteWeatherStore = new SqliteWeatherStore();
-        sqliteWeatherStore.connect("jdbc:sqlite:weather.db");
+        String apikey = args[0];
+        OpenWeatherMapSupplier openWeatherMapSupplier = new OpenWeatherMapSupplier(apikey);
 
-        WeatherController weatherController = new WeatherController(openWeatherMapSupplier, sqliteWeatherStore);
+        WeatherController weatherController = new WeatherController(openWeatherMapSupplier);
 
         Timer timer = new Timer();
         long period = 6 * 60 * 60 * 1000;

@@ -12,11 +12,9 @@ import java.util.TimerTask;
 
 public class WeatherController extends TimerTask{
     private OpenWeatherMapSupplier openWeatherMapSupplier;
-    private  SqliteWeatherStore sqliteWeatherStore;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier, SqliteWeatherStore sqliteWeatherStore) {
+    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier) {
         this.openWeatherMapSupplier = openWeatherMapSupplier;
-        this.sqliteWeatherStore = sqliteWeatherStore;
     }
 
     @Override
@@ -29,11 +27,7 @@ public class WeatherController extends TimerTask{
 
                 try {
                     List<Weather> weather = openWeatherMapSupplier.getWeather(location, scheduledInstant);
-                    sqliteWeatherStore.createTableForIsland(location.getIsland());
-                    for (Weather data : weather) {
-                        sqliteWeatherStore.insertWeather(location.getIsland(), data);
-                    }
-                } catch (IOException | SQLException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
