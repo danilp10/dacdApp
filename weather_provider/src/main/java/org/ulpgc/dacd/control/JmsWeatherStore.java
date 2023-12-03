@@ -34,7 +34,7 @@ public class JmsWeatherStore {
         MessageProducer producer = session.createProducer(destination);
 
         for (Weather weather : weatherList) {
-            String jsonWeather = weather.toJson();
+            String jsonWeather = String.valueOf(weather.prepareGson());
             TextMessage message = session.createTextMessage(jsonWeather);
             producer.send(message);
         }
