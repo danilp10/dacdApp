@@ -73,7 +73,7 @@ The project follows several design principles and uses common patterns to ensure
 4. Run the application:
 
    ```bash
-   java -cp ".:lib/gson-2.8.8.jar" org.ulpgc.dacd.control.Main
+   java -cp ".:lib/gson-2.8.8.jar" org.ulpgc.dacd.Main
 
 ## Configuration
 

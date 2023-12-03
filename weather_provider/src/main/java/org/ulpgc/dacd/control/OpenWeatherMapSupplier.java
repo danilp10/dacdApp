@@ -84,6 +84,16 @@ public class OpenWeatherMapSupplier {
         int allClouds = clouds.get("all").getAsInt();
         double pop = item.get("pop").getAsDouble();
 
-        return new Weather();
+        String dtTxt = item.get("dt_txt").getAsString();
+        dtTxt = dtTxt.substring(0, 10) + "T" + dtTxt.substring(11) + "Z";
+
+        Weather weather = new Weather();
+        weather.setTs(Instant.parse(dtTxt));
+        weather.setTemp(temperature);
+        weather.setHumidity(humidity);
+        weather.setWindSpeed(windSpeed);
+        weather.setClouds(allClouds);
+        weather.setRain(pop);
+        return weather;
     }
 }

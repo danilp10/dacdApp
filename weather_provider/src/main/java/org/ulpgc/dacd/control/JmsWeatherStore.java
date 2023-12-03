@@ -22,7 +22,7 @@ import java.util.List;
 public class JmsWeatherStore {
 
     private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
-    private static String subject = "prediction.Weather"; // Change the queue name to match the one used in WeatherController
+    private static String subject = "prediction.Weather";
 
     public void sendWeatherListToQueue(List<Weather> weatherList) throws JMSException {
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
@@ -34,7 +34,9 @@ public class JmsWeatherStore {
         MessageProducer producer = session.createProducer(destination);
 
         for (Weather weather : weatherList) {
-            String jsonWeather = String.valueOf(weather.prepareGson());
+            String jsonWeather = weather.toJson();
+            // Imprimir el evento serializado antes de enviarlo
+            System.out.println("Serialized Weather Event: " + jsonWeather);
             TextMessage message = session.createTextMessage(jsonWeather);
             producer.send(message);
         }
@@ -44,20 +46,20 @@ public class JmsWeatherStore {
     }
 
 
+
     public static void main(String[] args) {
         try {
             JmsWeatherStore jmsWeatherStore = new JmsWeatherStore();
 
-            // Crear una instancia de OpenWeatherMapSupplier con tu clave de API
             OpenWeatherMapSupplier weatherSupplier = new OpenWeatherMapSupplier(args[0]);
 
-            // Obtener la lista de Weather usando el método getWeather
-            Location location = new Location(27.99, -15.60, "GranCanaria");
-            Instant instant = Instant.now(); // Puedes establecer el instante deseado
-            List<Weather> weatherList = weatherSupplier.getWeather(location, instant);
+            Location[] locations = Main.getLocations();
 
-            // Enviar la lista de Weather a la cola JMS
-            jmsWeatherStore.sendWeatherListToQueue(weatherList);
+            for (Location location : locations) {
+                Instant instant = Instant.now();
+                List<Weather> weatherList = weatherSupplier.getWeather(location, instant);
+                jmsWeatherStore.sendWeatherListToQueue(weatherList);
+            }
         } catch (JMSException | IOException e) {
             e.printStackTrace();
         }

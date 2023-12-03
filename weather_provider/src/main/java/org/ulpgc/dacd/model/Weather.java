@@ -61,6 +61,14 @@ public class Weather implements Serializable {
             return island;
         }
 
+    public String getSs() {
+        return ss;
+    }
+
+    public String toJson() {
+        Gson gson = prepareGson();
+        return gson.toJson(this);
+    }
     public static Gson prepareGson() {
         return new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Instant.class, new TypeAdapter<Instant>() {
             @Override
@@ -73,5 +81,37 @@ public class Weather implements Serializable {
                 return Instant.parse(in.nextString());
             }
         }).create();
+    }
+
+    public void setTs(Instant ts) {
+        this.ts = ts;
+    }
+
+    public void setRain(double rain) {
+        this.rain = rain;
+    }
+
+    public void setWindSpeed(double windSpeed) {
+        this.windSpeed = windSpeed;
+    }
+
+    public void setTemp(double temp) {
+        this.temp = temp;
+    }
+
+    public void setHumidity(int humidity) {
+        this.humidity = humidity;
+    }
+
+    public void setClouds(int clouds) {
+        this.clouds = clouds;
+    }
+
+    public void setSs(String ss) {
+        this.ss = ss;
+    }
+
+    public void setPredictionTime(Instant predictionTime) {
+        this.predictionTime = predictionTime;
     }
 }
