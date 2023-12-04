@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Timer;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
         String apikey = args[0];
         OpenWeatherMapSupplier openWeatherMapSupplier = new OpenWeatherMapSupplier(apikey);
         WeatherController weatherController = new WeatherController(openWeatherMapSupplier);
