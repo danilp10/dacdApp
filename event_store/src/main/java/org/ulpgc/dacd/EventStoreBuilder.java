@@ -68,9 +68,4 @@ public class EventStoreBuilder {
         LocalDate localDate = LocalDate.ofInstant(instant, ZoneOffset.UTC);
         return localDate.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
     }
-
-    public static void main(String[] args) {
-        EventStoreBuilder eventStoreBuilder = new EventStoreBuilder();
-        eventStoreBuilder.start();
-    }
 }

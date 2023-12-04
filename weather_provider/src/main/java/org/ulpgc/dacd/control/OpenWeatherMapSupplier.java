@@ -17,6 +17,7 @@ import java.net.URL;
 import java.time.Instant;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,13 +42,13 @@ public class OpenWeatherMapSupplier {
             StringBuilder responseBody = new StringBuilder();
             scanner.forEachRemaining(responseBody::append);
 
-            return parseWeatherFromJson(responseBody.toString());
+            return parseWeatherFromJson(responseBody.toString(), location);
         } finally {
             connection.disconnect();
         }
     }
 
-    private static List<Weather> parseWeatherFromJson(String json) {
+    private static List<Weather> parseWeatherFromJson(String json, Location location) {
         Gson gson = new GsonBuilder().registerTypeAdapter(Instant.class, new InstantAdapter()).create();
         JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
         JsonArray list = jsonObject.getAsJsonArray("list");
@@ -56,7 +57,7 @@ public class OpenWeatherMapSupplier {
             JsonObject item = list.get(i).getAsJsonObject();
             if (isNoonData(item)) {
                 Instant instant = parseInstant(item.get("dt_txt").getAsString());
-                Weather weather = createWeatherObject(item, instant);
+                Weather weather = createWeatherObject(item, instant, location);
                 weathers.add(weather);
             }
         }
@@ -64,17 +65,22 @@ public class OpenWeatherMapSupplier {
     }
 
     private static boolean isNoonData(JsonObject item) {
-        LocalTime time = parseInstant(item.get("dt_txt").getAsString()).atZone(ZoneId.of("UTC")).toLocalTime();
+        String dtTxt = item.get("dt_txt").getAsString();
+        LocalTime time = parseInstant(dtTxt).atZone(ZoneId.of("UTC")).toLocalTime();
         return time.equals(LocalTime.of(12, 0));
     }
 
     private static Instant parseInstant(String dtTxt) {
-        String formattedDtTxt = dtTxt.substring(0, 10) + 'T' + dtTxt.substring(10) + "Z";
+        String formattedDtTxt = dtTxt.substring(0, 10) + "T" + dtTxt.substring(10) + "Z";
         return Instant.parse(formattedDtTxt).truncatedTo(ChronoUnit.SECONDS);
     }
 
 
-    private static Weather createWeatherObject(JsonObject item, Instant instant) {
+
+
+
+
+    private static Weather createWeatherObject(JsonObject item, Instant instant, Location location) {
         JsonObject main = item.getAsJsonObject("main");
         double temperature = main.get("temp").getAsDouble();
         int humidity = main.get("humidity").getAsInt();
@@ -84,16 +90,19 @@ public class OpenWeatherMapSupplier {
         int allClouds = clouds.get("all").getAsInt();
         double pop = item.get("pop").getAsDouble();
 
-        String dtTxt = item.get("dt_txt").getAsString();
-        dtTxt = dtTxt.substring(0, 10) + "T" + dtTxt.substring(11) + "Z";
-
-        Weather weather = new Weather();
-        weather.setTs(Instant.parse(dtTxt));
-        weather.setTemp(temperature);
-        weather.setHumidity(humidity);
-        weather.setWindSpeed(windSpeed);
-        weather.setClouds(allClouds);
-        weather.setRain(pop);
-        return weather;
+        return new Weather(
+                Instant.now().truncatedTo(ChronoUnit.SECONDS),
+                pop,
+                windSpeed,
+                temperature,
+                humidity,
+                allClouds,
+                location,
+                location.getLat(),
+                location.getLon(),
+                location.getIsland(),
+                "prediction.Weather",
+                instant
+        );
     }
 }

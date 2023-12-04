@@ -2,6 +2,7 @@ package org.ulpgc.dacd;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(1);
+        EventStoreBuilder eventStoreBuilder = new EventStoreBuilder();
+        eventStoreBuilder.start();
     }
 }

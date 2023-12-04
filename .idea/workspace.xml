@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="EventStoreBuilder created but some problems with its compilation">
-      <change beforePath="$PROJECT_DIR$/event_store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/pom.xml" afterDir="false" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Connection openwire established">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/JmsWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/JmsWeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="253ed68c77c1f2843f22a1e26df1521ede8547e4" />
+        <entry key="$PROJECT_DIR$" value="f75089abbe67b3e6ddb0312a7c1cbb89d98710ba" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +66,7 @@
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\weather_provider" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EventStoreBuilder">
+  <component name="RunManager" selected="Application.org.ulpgc.dacd.control.Main">
     <configuration name="EventStoreBuilder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.EventStoreBuilder" />
       <module name="event_store" />
@@ -152,9 +156,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
         <item itemvalue="Application.JmsWeatherStore" />
         <item itemvalue="Application.org.ulpgc.dacd.control.EventStoreBuilder" />
-        <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
         <item itemvalue="Application.JsoupTest" />
         <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
       </list>
@@ -233,10 +237,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.io.IOException" package="java.io" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.time.format.DateTimeParseException" package="java.time.format" />
           <option name="timeStamp" value="2" />

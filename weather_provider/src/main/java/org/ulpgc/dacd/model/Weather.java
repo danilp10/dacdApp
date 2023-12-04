@@ -9,7 +9,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 public class Weather implements Serializable {
     private Instant ts;
@@ -23,7 +22,21 @@ public class Weather implements Serializable {
     private String island;
     private String ss;
     private Instant predictionTime;
+    private Location location;
 
+    public Weather(Instant ts, double rain, double windSpeed, double temp, int humidity, int clouds, Location location, double lat, double lon, String island, String ss, Instant predictionTime) {
+        this.ts = ts;
+        this.rain = rain;
+        this.windSpeed = windSpeed;
+        this.temp = temp;
+        this.humidity = humidity;
+        this.clouds = clouds;
+        this.location = new Location(lat, lon, island);
+        this.lon = lon;
+        this.island = island;
+        this.ss = ss;
+        this.predictionTime = predictionTime;
+    }
 
     public Instant getTs() {
             return ts;
@@ -65,53 +78,7 @@ public class Weather implements Serializable {
         return ss;
     }
 
-    public String toJson() {
-        Gson gson = prepareGson();
-        return gson.toJson(this);
-    }
-    public static Gson prepareGson() {
-        return new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Instant.class, new TypeAdapter<Instant>() {
-            @Override
-            public void write(JsonWriter out, Instant value) throws IOException {
-                out.value(value.toString());
-            }
-
-            @Override
-            public Instant read(JsonReader in) throws IOException {
-                return Instant.parse(in.nextString());
-            }
-        }).create();
-    }
-
-    public void setTs(Instant ts) {
-        this.ts = ts;
-    }
-
-    public void setRain(double rain) {
-        this.rain = rain;
-    }
-
-    public void setWindSpeed(double windSpeed) {
-        this.windSpeed = windSpeed;
-    }
-
-    public void setTemp(double temp) {
-        this.temp = temp;
-    }
-
-    public void setHumidity(int humidity) {
-        this.humidity = humidity;
-    }
-
-    public void setClouds(int clouds) {
-        this.clouds = clouds;
-    }
-
-    public void setSs(String ss) {
-        this.ss = ss;
-    }
-
-    public void setPredictionTime(Instant predictionTime) {
-        this.predictionTime = predictionTime;
+    public Location getLocation() {
+        return location;
     }
 }
