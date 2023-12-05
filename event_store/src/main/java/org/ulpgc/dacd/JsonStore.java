@@ -19,31 +19,27 @@ import java.util.List;
 public class JsonStore {
     private static String topicName = "prediction.Weather";
 
-    public void storeEvent(ArrayList<String> events) throws IOException {
+    public void storeEvent(String event) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        for (String event : events) {
-            JsonNode jsonNode = objectMapper.readTree(event);
-            String tsValue = jsonNode.get("ts").asText();
-            String ssValue = jsonNode.get("ss").asText();
-            String formattedDate = formatInstantDate(tsValue);
-            String directoryPath = "event_store/" + topicName + "/" + ssValue + "/";
-            String filePath = directoryPath + formattedDate + ".events";
 
-            try {
-                new java.io.File(directoryPath).mkdirs();
+        JsonNode jsonNode = objectMapper.readTree(event);
+        String tsValue = jsonNode.get("ts").asText();
+        String ssValue = jsonNode.get("ss").asText();
+        String formattedDate = formatInstantDate(tsValue);
+        String directoryPath = "event_store/" + topicName + "/" + ssValue + "/";
+        String filePath = directoryPath + formattedDate + ".events";
 
-                try (FileWriter writer = new FileWriter(filePath, true)) {
-                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                    String jsonEvent = gson.toJson(event);
-                    writer.write(jsonEvent);
-                    writer.write(System.lineSeparator());
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            new java.io.File(directoryPath).mkdirs();
+            try (FileWriter writer = new FileWriter(filePath, true)) {
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                String jsonEvent = gson.toJson(event);
+                writer.write(jsonEvent);
+                writer.write(System.lineSeparator());
             }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-
-
     }
 
     private String formatInstantDate(String instant) {
