@@ -15,30 +15,35 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.List;
 
-public class JmsWeatherStore {
+public class JmsWeatherStore implements WeatherStore{
 
     private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     private static String subject = "prediction.Weather";
 
-    public void sendWeatherListToQueue(List<Weather> weatherList) throws JMSException {
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
-        Connection connection = connectionFactory.createConnection();
-        connection.start();
+    public void save(List<Weather> weatherList) {
+        try {
+            ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+            Connection connection = connectionFactory.createConnection();
+            connection.start();
 
-        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-        Topic topic = session.createTopic(subject);
-        MessageProducer producer = session.createProducer(topic);
+            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+            Topic topic = session.createTopic(subject);
+            MessageProducer producer = session.createProducer(topic);
 
-        for (Weather weather : weatherList) {
-            String jsonWeather = prepareGson().toJson(weather);
-            // Imprimir el evento serializado antes de enviarlo
-            System.out.println("Serialized Weather Event: " + jsonWeather);
-            TextMessage message = session.createTextMessage(jsonWeather);
-            producer.send(message);
+            for (Weather weather : weatherList) {
+                String jsonWeather = prepareGson().toJson(weather);
+                // Imprimir el evento serializado antes de enviarlo
+                System.out.println("Serialized Weather Event: " + jsonWeather);
+                TextMessage message = session.createTextMessage(jsonWeather);
+                producer.send(message);
+            }
+
+            System.out.println("Weather data sent to the queue.");
+            connection.close();
+        } catch (JMSException e) {
+            throw new RuntimeException(e);
         }
 
-        System.out.println("Weather data sent to the queue.");
-        connection.close();
     }
 
     public Gson prepareGson() {

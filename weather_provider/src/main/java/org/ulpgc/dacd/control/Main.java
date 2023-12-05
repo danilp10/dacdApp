@@ -31,9 +31,9 @@ public class Main {
             for (Location location : locations) {
                 Instant instant = Instant.now().truncatedTo(ChronoUnit.SECONDS);
                 List<Weather> weatherList = weatherSupplier.getWeather(location, instant);
-                jmsWeatherStore.sendWeatherListToQueue(weatherList);
+                jmsWeatherStore.save(weatherList);
             }
-        } catch (JMSException | IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Some big problems solved">
-      <change afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/JsonStore.java" afterDir="false" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Events written in a directory of the event_store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/JsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/JsonStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/JmsWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/JmsWeatherStore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701708419252</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Events written in a directory of the event_store">
+      <option name="closed" value="true" />
+      <created>1701721190044</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701721190044</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +255,8 @@
     <MESSAGE value="Serialized weather object can be sent to broker" />
     <MESSAGE value="EventStoreBuilder created but some problems with its compilation" />
     <MESSAGE value="Some big problems solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some big problems solved" />
+    <MESSAGE value="Events written in a directory of the event_store" />
+    <option name="LAST_COMMIT_MESSAGE" value="Events written in a directory of the event_store" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

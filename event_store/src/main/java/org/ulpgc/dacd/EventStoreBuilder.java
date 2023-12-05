@@ -3,37 +3,37 @@ import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
-import java.util.ArrayList;
+import java.io.IOException;
 
 public class EventStoreBuilder {
 
     private static String brokerUrl = ActiveMQConnection.DEFAULT_BROKER_URL;
     private static String topicName = "prediction.Weather";
+    private static String subscriptionName = "DurableSubscription";
+    private static JsonStore jsonStore = new JsonStore();
 
-    public ArrayList<String> start() {
+    public void start() {
         try {
             ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(brokerUrl);
             Connection connection = connectionFactory.createConnection();
+            connection.setClientID("EventStoreBuilder");
             connection.start();
 
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             Topic topic = session.createTopic(topicName);
-            MessageConsumer consumer = session.createConsumer(topic);
-            Message message;
-            ArrayList<String> weathersList = new ArrayList<>();
-
-            while ((message = consumer.receive(10000)) != null) {
-                if (message instanceof TextMessage) {
-                    String jsonEvent = ((TextMessage) message).getText();
-                    weathersList.add(jsonEvent);
+            MessageConsumer consumer = session.createDurableSubscriber(topic, subscriptionName);
+            consumer.setMessageListener(message -> {
+                try {
+                    jsonStore.storeEvent(((TextMessage) message).getText());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (JMSException e) {
+                    throw new RuntimeException(e);
                 }
-            }
-            return weathersList;
-
+            });
         } catch (JMSException e) {
             e.printStackTrace();
         }
-        return null;
     }
 
 }
