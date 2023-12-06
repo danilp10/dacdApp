@@ -11,25 +11,33 @@
 
 ## Functionality Summary and Description
 
-The Weather Prediction Java Application periodically fetches weather predictions from the OpenWeatherMap API and stores them in an SQLite database. It provides forecasts for multiple islands, including temperature, precipitation probability, humidity, clouds, and wind speed for the next 5 days at 12:00 p.m.
+The Java Weather Forecasting Application periodically obtains weather forecasts from the OpenWeatherMap API and sends them to the broker, allowing to read these forecasts through a subscription system. It provides multi-island forecasts, including temperature, precipitation probability, humidity, clouds and wind speed for the next 5 days at 12:00 p.m. In addition, forecasts in the form of events are written serialised in a directory, with one event per line.
 
 ## Key Features
 
-- **API Integration:** Utilizes the OpenWeatherMap API to fetch accurate and up-to-date weather predictions.
+- **API Integration:** The application fetches weather forecasts from the OpenWeatherMap API periodically.
 
-- **SQLite Database:** Persists weather data in an SQLite database, organized by island and date.
+- **Message Broker:** Utilizes a message broker to send and manage weather forecasts, allowing access through a subscription system.
 
-- **Island-based Tables:** Each island has its own table in the database for easy retrieval and management.
+- **Multi-Island Forecasts:** Provides forecasts for multiple islands, including temperature, precipitation probability, humidity, clouds, and wind speed for the next 5 days at 12:00 p.m.
+
+- **Event Serialization:** Serializes weather forecasts into events and stores them in a directory, with each event written on a separate line.
 
 - **Scheduled Fetching:** Automatically queries the API every 6 hours to update weather predictions.
 
 ## Project Structure
 
-The project is structured into different packages:
+The project is structured into different modules and packages:
 
 - `org.ulpgc.dacd.model:` Contains model classes representing locations and weather data.
 
-- `org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, and storing data in the database.
+- `org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, storing data in the database, and managing JMS messaging.
+
+- `org.ulpgc.dacd.control.JmsWeatherStore:` Implements the `WeatherStore` interface for saving weather data to a JMS (Java Message Service) topic.
+
+- `org.ulpgc.dacd.control.EventStoreBuilder:` Listens for weather data on a JMS durable subscription and processes it using `JsonStore`.
+
+- `org.ulpgc.dacd.JsonStore:` Stores weather data in JSON format in a specific directory structure.
 
 ## Design
 
@@ -37,22 +45,28 @@ The project is structured into different packages:
 
 The project follows several design principles and uses common patterns to ensure modularity, extensibility, and code clarity. Some of the design principles used are SOLID (Single Responsibility Principle, Open/Closed Principle) and the use of patterns such as Observer for updating the database.
 
-### Class diagram
-   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/849e857d-ebaf-4d0d-a0c1-d4cc31d9f836)
+### Class diagrams
+   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/ecdbd6f6-b626-46c8-8b65-fbf50bedb8d9)
+   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/0ae0bfa4-afcb-40e3-9467-07c697eb8018)
+
+
 
 
 ### Dependency relationships
 
-1.`WeatherController` depends on `OpenWeatherMapSupplier` and `SqliteWeatherStore` to obtain and store weather data.
-2. `SqliteWeatherStore` interacts with the SQLite database for data persistence.
-3. The classes in `org.ulpgc.dacd.model` represent the fundamental entities of the system, such as `Location` and `Weather`.
+1. `WeatherController` depends on `OpenWeatherMapSupplier` and `JmsWeatherStore` to obtain and store weather data.
+2. `JmsWeatherStore` implements the `WeatherStore` interface and sends weather data to a JMS topic.
+3. `EventStoreBuilder` listens for weather data on a JMS durable subscription and processes it using `JsonStore`.
+4. `JsonStore` stores weather data in JSON format.
 
-## Resources used
+## Resources Used
 
 - Java Development Kit (JDK) 8 or higher
-- SQLite database
+- OpenWeatherMap API
+- Message broker for subscription system (e.g., Apache ActiveMQ)
 - Git
 - Markdown
+
 
 ## Getting Started
 
@@ -76,11 +90,28 @@ The project follows several design principles and uses common patterns to ensure
    ```bash
    java -cp ".:lib/gson-2.8.8.jar" org.ulpgc.dacd.Main
 
-## Configuration
+## Configuration:
 
 1. Open Main.java and update the apikey variable with your OpenWeatherMap API key.
-2. Verify and update the island locations in the WeatherController class.
+2. Verify and update the island locations.
 
-## Usage
+## Usage:
 
-The application will automatically run at specified intervals, querying the API for weather predictions for the next 5 days at 12:00 p.m. for each island. The data will be stored in the SQLite database.
+The application will automatically run at specified intervals, querying the API for weather predictions for the next 5 days at 12:00 p.m. for each island. The data will be sent to the broker and written in a new directory.
+
+## Adittional Information:
+This project includes a release for easy testing and execution. The release consists of pre-compiled JAR files and associated dependencies. Follow the steps below to run the application:
+
+Download the Release: Visit the Releases section on GitHub.
+
+Choose the Latest Release: Select the latest release from the list. Releases are tagged with version numbers.
+
+Download the JAR Files: Download the JAR files from the assets section of the chosen release. Ensure that you download the JAR files and any accompanying dependencies.
+
+Configure API Key: Open the Main.java file and update the apikey variable with your OpenWeatherMap API key.
+
+Run the Application: Open a terminal, navigate to the directory containing the JAR files, and run the application using the following command:
+java -cp ".:lib/*" org.ulpgc.dacd.Main
+This command assumes that the JAR files and dependencies are in the same directory.
+
+
