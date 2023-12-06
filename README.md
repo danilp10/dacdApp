@@ -99,7 +99,7 @@ The project follows several design principles and uses common patterns to ensure
 
 The application will automatically run at specified intervals, querying the API for weather predictions for the next 5 days at 12:00 p.m. for each island. The data will be sent to the broker and written in a new directory.
 
-## Adittional Information:
+## Jar Information:
 This project includes a release for easy testing and execution. The release consists of pre-compiled JAR files and associated dependencies. Follow the steps below to run the application:
 
 Download the Release: Visit the Releases section on GitHub.
@@ -110,8 +110,9 @@ Download the JAR Files: Download the JAR files from the assets section of the ch
 
 Configure API Key: Open the Main.java file and update the apikey variable with your OpenWeatherMap API key.
 
-Run the Application: Open a terminal, navigate to the directory containing the JAR files, and run the application using the following command:
-java -cp ".:lib/*" org.ulpgc.dacd.Main
+Run the Application: Open a terminal, navigate to the directory containing the JAR files, and run the application using the following commands:
+java -jar target/event_store-1.0-SNAPSHOT.jar
+java -jar target/weather_provider-1.0-SNAPSHOT.jar
 This command assumes that the JAR files and dependencies are in the same directory.
 
 
