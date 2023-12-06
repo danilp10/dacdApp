@@ -4,20 +4,15 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import org.apache.activemq.ActiveMQConnectionFactory;
 import org.ulpgc.dacd.model.Location;
 import org.ulpgc.dacd.model.Weather;
-
-import javax.jms.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Instant;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,11 +70,6 @@ public class OpenWeatherMapSupplier {
         return Instant.parse(formattedDtTxt).truncatedTo(ChronoUnit.SECONDS);
     }
 
-
-
-
-
-
     private static Weather createWeatherObject(JsonObject item, Instant instant, Location location) {
         JsonObject main = item.getAsJsonObject("main");
         double temperature = main.get("temp").getAsDouble();
@@ -89,20 +79,7 @@ public class OpenWeatherMapSupplier {
         JsonObject clouds = item.getAsJsonObject("clouds");
         int allClouds = clouds.get("all").getAsInt();
         double pop = item.get("pop").getAsDouble();
-
-        return new Weather(
-                Instant.now().truncatedTo(ChronoUnit.SECONDS),
-                pop,
-                windSpeed,
-                temperature,
-                humidity,
-                allClouds,
-                location,
-                location.getLat(),
-                location.getLon(),
-                location.getIsland(),
-                "prediction.Weather",
-                instant
-        );
+        return new Weather(Instant.now().truncatedTo(ChronoUnit.SECONDS), pop, windSpeed, temperature, humidity,
+                allClouds, location, location.getLat(), location.getLon(), location.getIsland(), "prediction.Weather", instant);
     }
 }

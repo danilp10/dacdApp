@@ -32,7 +32,6 @@ public class JmsWeatherStore implements WeatherStore{
 
             for (Weather weather : weatherList) {
                 String jsonWeather = prepareGson().toJson(weather);
-                // Imprimir el evento serializado antes de enviarlo
                 System.out.println("Serialized Weather Event: " + jsonWeather);
                 TextMessage message = session.createTextMessage(jsonWeather);
                 producer.send(message);

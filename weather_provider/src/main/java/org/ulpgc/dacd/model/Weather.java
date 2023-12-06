@@ -1,12 +1,5 @@
 package org.ulpgc.dacd.model;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-
-import java.io.IOException;
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -33,6 +26,7 @@ public class Weather implements Serializable {
         this.clouds = clouds;
         this.location = new Location(lat, lon, island);
         this.lon = lon;
+        this.lat = lat;
         this.island = island;
         this.ss = ss;
         this.predictionTime = predictionTime;

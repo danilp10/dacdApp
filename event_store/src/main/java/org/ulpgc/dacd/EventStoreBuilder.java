@@ -25,9 +25,7 @@ public class EventStoreBuilder {
             consumer.setMessageListener(message -> {
                 try {
                     jsonStore.storeEvent(((TextMessage) message).getText());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (JMSException e) {
+                } catch (IOException | JMSException e) {
                     throw new RuntimeException(e);
                 }
             });

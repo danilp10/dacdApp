@@ -2,35 +2,33 @@ package org.ulpgc.dacd.control;
 
 import org.ulpgc.dacd.model.Location;
 import org.ulpgc.dacd.model.Weather;
-
 import java.io.IOException;
-import java.sql.SQLException;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.TimerTask;
 
 public class WeatherController extends TimerTask{
-    private OpenWeatherMapSupplier openWeatherMapSupplier;
+    private OpenWeatherMapSupplier weatherSupplier;
+    private JmsWeatherStore jmsWeatherStore;
 
-    public WeatherController(OpenWeatherMapSupplier openWeatherMapSupplier) {
-        this.openWeatherMapSupplier = openWeatherMapSupplier;
+    public WeatherController(OpenWeatherMapSupplier weatherSupplier, JmsWeatherStore jmsWeatherStore) {
+        this.weatherSupplier = weatherSupplier;
+        this.jmsWeatherStore = jmsWeatherStore;
     }
 
     @Override
     public void run() {
         Location[] locations = Main.getLocations();
+        Instant instant = Instant.now().truncatedTo(ChronoUnit.SECONDS);
         for (Location location : locations) {
-            for (int i = 0; i < 5; i++) {
-                Instant scheduledInstant = Instant.now().truncatedTo(ChronoUnit.DAYS)
-                        .plus(i, ChronoUnit.DAYS).plus(12, ChronoUnit.HOURS);
-
-                try {
-                    List<Weather> weather = openWeatherMapSupplier.getWeather(location, scheduledInstant);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            List<Weather> weatherList;
+            try {
+                weatherList = weatherSupplier.getWeather(location, instant);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
+            jmsWeatherStore.save(weatherList);
         }
     }
 
