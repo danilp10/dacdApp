@@ -45,8 +45,11 @@ The project is structured into different modules and packages:
 
 The project follows several design principles and uses common patterns to ensure modularity, extensibility, and code clarity. Some of the design principles used are SOLID (Single Responsibility Principle, Open/Closed Principle) and the use of patterns such as Observer for updating the database.
 
-### Class diagram
-   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/849e857d-ebaf-4d0d-a0c1-d4cc31d9f836)
+### Class diagrams
+   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/ecdbd6f6-b626-46c8-8b65-fbf50bedb8d9)
+   ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/0ae0bfa4-afcb-40e3-9467-07c697eb8018)
+
+
 
 
 ### Dependency relationships
