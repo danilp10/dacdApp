@@ -32,9 +32,7 @@ public class JsonStore {
         try {
             new java.io.File(directoryPath).mkdirs();
             try (FileWriter writer = new FileWriter(filePath, true)) {
-                Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                String jsonEvent = gson.toJson(event);
-                writer.write(jsonEvent);
+                writer.write(event.replaceAll("\\s", ""));
                 writer.write(System.lineSeparator());
             }
         } catch (Exception e) {
