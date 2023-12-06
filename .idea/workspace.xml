@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Some errors corrected">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Code improved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/JsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/JsonStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/JmsWeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/JmsWeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/WeatherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701861334514</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Code improved">
+      <option name="closed" value="true" />
+      <created>1701869126349</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1701869126349</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,7 +305,8 @@
     <MESSAGE value="Events written in a directory of the event_store" />
     <MESSAGE value="Plugins for jar added" />
     <MESSAGE value="Some errors corrected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some errors corrected" />
+    <MESSAGE value="Code improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code improved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
