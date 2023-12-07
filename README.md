@@ -112,7 +112,8 @@ Configure API Key: Open the Main.java file and update the apikey variable with y
 
 Run the Application: Open a terminal, navigate to the directory containing the JAR files, and run the application using the following commands:
 java -jar target/event_store-1.0-SNAPSHOT.jar
-java -jar target/weather_provider-1.0-SNAPSHOT.jar
+
+java -jar target/weather_provider-1.0-SNAPSHOT.jar your_apikey
 This command assumes that the JAR files and dependencies are in the same directory.
 
 
