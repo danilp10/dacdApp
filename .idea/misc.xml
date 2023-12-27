@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/datalake_builder/pom.xml" />
+        <option value="$PROJECT_DIR$/travel_price_provider/pom.xml" />
       </list>
     </option>
   </component>

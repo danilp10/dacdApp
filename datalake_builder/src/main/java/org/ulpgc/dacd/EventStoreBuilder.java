@@ -19,6 +19,8 @@ public class EventStoreBuilder {
             connection.setClientID("EventStoreBuilder");
             connection.start();
 
+            // Crear una suscripción para cada topic
+
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             Topic topic = session.createTopic(topicName);
             MessageConsumer consumer = session.createDurableSubscriber(topic, subscriptionName);
