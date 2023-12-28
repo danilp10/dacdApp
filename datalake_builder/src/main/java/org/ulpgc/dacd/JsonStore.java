@@ -5,12 +5,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
 public class JsonStore {
-    private static String topicName = "prediction.Weather";
+    private String topicName;
+    private String rootDirectory;
+
+    public JsonStore(String topicName, String rootDirectory) {
+        this.topicName = topicName;
+        this.rootDirectory = rootDirectory;
+    }
 
     public void storeEvent(String event) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -19,11 +26,12 @@ public class JsonStore {
         String tsValue = jsonNode.get("ts").asText();
         String ssValue = jsonNode.get("ss").asText();
         String formattedDate = formatInstantDate(tsValue);
-        String directoryPath = "event_store/" + topicName + "/" + ssValue + "/";
-        String filePath = directoryPath + formattedDate + ".events";
+
+        String directoryPath = Paths.get(rootDirectory, "event_store", topicName, ssValue).toString();
+        String filePath = Paths.get(directoryPath, formattedDate + ".events").toString();
 
         try {
-            new java.io.File(directoryPath).mkdirs();
+            java.nio.file.Files.createDirectories(Paths.get(directoryPath));
             try (FileWriter writer = new FileWriter(filePath, true)) {
                 writer.write(event.replaceAll("\\s", ""));
                 writer.write(System.lineSeparator());

@@ -1,6 +1,5 @@
 package org.ulpgc.dacd.control;
 
-import org.ulpgc.dacd.model.Hotel;
 import org.ulpgc.dacd.model.HotelBasicInfo;
 
 import java.io.IOException;

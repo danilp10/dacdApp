@@ -11,37 +11,44 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.ulpgc.dacd.model.Hotel;
 import java.io.IOException;
 import java.time.Instant;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-public class JmsHotelStore implements HotelStore{
+public class JmsHotelStore implements HotelStore {
 
     private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     private static String subject = "rate.Hotel";
+    private Set<String> sentKeys = new HashSet<>();
 
-    public void save(List<Hotel> hotelList) {
+    public void save(Hotel hotel) {
         try {
-            ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
-            Connection connection = connectionFactory.createConnection();
-            connection.start();
+            if (!containsKey(hotel.getKey())) {
+                ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
+                Connection connection = connectionFactory.createConnection();
+                connection.start();
 
-            Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Topic topic = session.createTopic(subject);
-            MessageProducer producer = session.createProducer(topic);
-            System.out.println("Number of hotels to send: " + hotelList.size());
+                Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+                Topic topic = session.createTopic(subject);
+                MessageProducer producer = session.createProducer(topic);
 
-            for (Hotel hotel : hotelList) {
                 String jsonHotel = prepareGson().toJson(hotel);
                 System.out.println("Serialized Hotel Event: " + jsonHotel);
                 TextMessage message = session.createTextMessage(jsonHotel);
                 producer.send(message);
-            }
 
-            System.out.println("Hotel data sent to the queue.");
-            connection.close();
+                System.out.println("Hotel data sent to the queue.");
+
+                sentKeys.add(hotel.getKey());
+
+                connection.close();
+            }
         } catch (JMSException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    public boolean containsKey(String key) {
+        return sentKeys.contains(key);
     }
 
     public Gson prepareGson() {
@@ -57,5 +64,4 @@ public class JmsHotelStore implements HotelStore{
             }
         }).create();
     }
-
 }

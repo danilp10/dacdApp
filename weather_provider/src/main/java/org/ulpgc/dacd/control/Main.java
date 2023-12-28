@@ -18,7 +18,7 @@ public class Main {
     public static Location[] getLocations() {
         return new Location[] {
                 new Location(41.39, 2.17, "Barcelona"),
-                new Location(27.99, -15.60, "GranCanaria"),
+                new Location(41.90, 12.50, "Rome"),
                 new Location(40.42, -3.70, "Madrid"),
                 new Location(48.86, 2.35, "Paris"),
                 new Location(52.52, 13.41, "Berlin"),

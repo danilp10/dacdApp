@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Jar problem solved">
-      <change afterPath="$PROJECT_DIR$/hotel_provider/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/InstantAdapt.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/JmsHotelStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/HotelBasicInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/Rate.java" afterDir="false" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Hotel data can be sent to the broker">
       <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/resources/hotel.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_store/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/JsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/JsonStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/event_store/src/main/java/org/ulpgc/dacd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/EventStoreBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/JsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/JsonStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/JmsHotelStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/JmsHotelStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/Hotel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -347,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701871832754</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Hotel data can be sent to the broker">
+      <option name="closed" value="true" />
+      <created>1703703213920</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1703703213920</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -372,7 +367,8 @@
     <MESSAGE value="Some errors corrected" />
     <MESSAGE value="Code improved" />
     <MESSAGE value="Jar problem solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jar problem solved" />
+    <MESSAGE value="Hotel data can be sent to the broker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hotel data can be sent to the broker" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

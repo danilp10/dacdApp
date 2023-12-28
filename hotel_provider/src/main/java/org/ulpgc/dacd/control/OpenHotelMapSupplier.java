@@ -105,6 +105,6 @@ public class OpenHotelMapSupplier {
         }
         Instant checkOut = checkIn.plus(5, ChronoUnit.DAYS);
 
-        return new Hotel(Instant.now().truncatedTo(ChronoUnit.SECONDS), hotelName, location, hotelKey, code, rateName, rate, tax, checkIn, checkOut);
+        return new Hotel(Instant.now().truncatedTo(ChronoUnit.SECONDS), hotelName, location, hotelKey, code, rateName, rate, tax, checkIn, checkOut, "rate.Hotel");
     }
 }

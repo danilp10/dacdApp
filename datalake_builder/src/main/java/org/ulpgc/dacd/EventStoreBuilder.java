@@ -8,9 +8,12 @@ import java.io.IOException;
 public class EventStoreBuilder {
 
     private static String brokerUrl = ActiveMQConnection.DEFAULT_BROKER_URL;
-    private static String topicName = "prediction.Weather";
-    private static String subscriptionName = "DurableSubscription";
-    private static JsonStore jsonStore = new JsonStore();
+    private static String topicWeatherName = "prediction.Weather";
+    private static String topicHotelName = "rate.Hotel";
+    private static String subscriptionWeatherName = "DurableWeatherSubscription";
+    private static String subscriptionHotelName = "DurableHotelSubscription";
+    private static JsonStore jsonWeatherStore = new JsonStore(topicWeatherName, "event_store");
+    private static JsonStore jsonHotelStore = new JsonStore(topicHotelName, "event_store");
 
     public void start() {
         try {
@@ -19,14 +22,21 @@ public class EventStoreBuilder {
             connection.setClientID("EventStoreBuilder");
             connection.start();
 
-            // Crear una suscripción para cada topic
-
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Topic topic = session.createTopic(topicName);
-            MessageConsumer consumer = session.createDurableSubscriber(topic, subscriptionName);
-            consumer.setMessageListener(message -> {
+            Topic weatherTopic = session.createTopic(topicWeatherName);
+            Topic hotelTopic = session.createTopic(topicHotelName);
+            MessageConsumer weatherConsumer = session.createDurableSubscriber(weatherTopic, subscriptionWeatherName);
+            MessageConsumer hotelConsumer = session.createDurableSubscriber(hotelTopic, subscriptionHotelName);
+            weatherConsumer.setMessageListener(message -> {
                 try {
-                    jsonStore.storeEvent(((TextMessage) message).getText());
+                    jsonWeatherStore.storeEvent(((TextMessage) message).getText());
+                } catch (IOException | JMSException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            hotelConsumer.setMessageListener(message -> {
+                try {
+                    jsonHotelStore.storeEvent(((TextMessage) message).getText());
                 } catch (IOException | JMSException e) {
                     throw new RuntimeException(e);
                 }
