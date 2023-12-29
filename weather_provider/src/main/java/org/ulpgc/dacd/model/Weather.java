@@ -12,22 +12,22 @@ public class Weather implements Serializable {
     private int clouds;
     private double lat;
     private double lon;
-    private String island;
+    private String city;
     private String ss;
     private Instant predictionTime;
     private Location location;
 
-    public Weather(Instant ts, double rain, double windSpeed, double temp, int humidity, int clouds, Location location, double lat, double lon, String island, String ss, Instant predictionTime) {
+    public Weather(Instant ts, double rain, double windSpeed, double temp, int humidity, int clouds, Location location, double lat, double lon, String city, String ss, Instant predictionTime) {
         this.ts = ts;
         this.rain = rain;
         this.windSpeed = windSpeed;
         this.temp = temp;
         this.humidity = humidity;
         this.clouds = clouds;
-        this.location = new Location(lat, lon, island);
+        this.location = new Location(lat, lon, city);
         this.lon = lon;
         this.lat = lat;
-        this.island = island;
+        this.city = city;
         this.ss = ss;
         this.predictionTime = predictionTime;
     }
@@ -64,8 +64,8 @@ public class Weather implements Serializable {
             return lon;
         }
 
-    public String getIsland() {
-            return island;
+    public String getCity() {
+            return city;
         }
 
     public String getSs() {

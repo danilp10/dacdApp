@@ -80,6 +80,6 @@ public class OpenWeatherMapSupplier {
         int allClouds = clouds.get("all").getAsInt();
         double pop = item.get("pop").getAsDouble();
         return new Weather(Instant.now().truncatedTo(ChronoUnit.SECONDS), pop, windSpeed, temperature, humidity,
-                allClouds, location, location.getLat(), location.getLon(), location.getIsland(), "prediction.Weather", instant);
+                allClouds, location, location.getLat(), location.getLon(), location.getCity(), "prediction.Weather", instant);
     }
 }
