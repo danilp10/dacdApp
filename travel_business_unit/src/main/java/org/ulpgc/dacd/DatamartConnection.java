@@ -37,7 +37,7 @@ public class DatamartConnection {
     public void createTable() {
         try (PreparedStatement statement = connection.prepareStatement(
                 "CREATE TABLE IF NOT EXISTS datamart ("
-                        + "location TEXT, "
+                        + "location TEXT PRIMARY KEY, "
                         + "date TEXT, "
                         + "temperature REAL, "
                         + "precipitation REAL, "
@@ -80,23 +80,22 @@ public class DatamartConnection {
     private void updateRecord(Weather weather, Hotel hotel) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(
                 "UPDATE datamart SET temperature=?, precipitation=?, humidity=?, windSpeed=?, clouds=?, hotelName=?, checkInOut=?, rate=?, tax=?, rateName=?, code=? WHERE location=? AND date=?")) {
-            statement.setDouble(1, weather.getTemp());
-            statement.setDouble(2, weather.getRain());
-            statement.setInt(3, weather.getHumidity());
-            statement.setDouble(4, weather.getWindSpeed());
-            statement.setInt(5, weather.getClouds());
-            statement.setString(6, hotel.getName());
-            statement.setString(7, String.valueOf(hotel.getCheckIn()) + " to " + String.valueOf(hotel.getCheckOut()));
-            statement.setDouble(8, hotel.getRate());
-            statement.setDouble(9, hotel.getTax());
-            statement.setString(10, hotel.getRateName());
-            statement.setString(11, hotel.getCode());
-            statement.setString(12, weather.getLocation().getCity());
-            statement.setString(13, String.valueOf(weather.getTs()));
+            statement.setString(1, weather.getLocation().getCity());
+            statement.setString(2, String.valueOf(weather.getTs()));
+            statement.setDouble(3, weather.getTemp());
+            statement.setDouble(4, weather.getRain());
+            statement.setInt(5, weather.getHumidity());
+            statement.setDouble(6, weather.getWindSpeed());
+            statement.setInt(7, weather.getClouds());
+            statement.setString(8, hotel.getName());
+            statement.setString(9, String.valueOf(hotel.getCheckIn()) + " to " + String.valueOf(hotel.getCheckOut()));
+            statement.setDouble(10, hotel.getRate());
+            statement.setDouble(11, hotel.getTax());
+            statement.setString(12, hotel.getRateName());
+            statement.setString(13, hotel.getCode());
             statement.executeUpdate();
         }
     }
-
 
     private boolean recordExists(String location, Instant ts) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement("SELECT COUNT(*) FROM datamart WHERE location=? AND date=?")) {
@@ -104,16 +103,6 @@ public class DatamartConnection {
             statement.setString(2, String.valueOf(ts));
             ResultSet result = statement.executeQuery();
             return result.next() && result.getInt(1) > 0;
-        }
-    }
-
-    public void closeConnection() {
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }

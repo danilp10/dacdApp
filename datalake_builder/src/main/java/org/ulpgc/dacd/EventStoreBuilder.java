@@ -6,18 +6,19 @@ import javax.jms.*;
 import java.io.IOException;
 
 public class EventStoreBuilder {
-    private String rootDirectory;
-    private static String brokerUrl = ActiveMQConnection.DEFAULT_BROKER_URL;
-    private static String topicWeatherName = "prediction.Weather";
-    private static String topicHotelName = "rate.Hotel";
-    private static String subscriptionWeatherName = "DurableWeatherSubscription";
-    private static String subscriptionHotelName = "DurableHotelSubscription";
-    private JsonStore jsonWeatherStore = new JsonStore(topicWeatherName, rootDirectory);
-    private JsonStore jsonHotelStore = new JsonStore(topicHotelName, rootDirectory);
+    private static final String brokerUrl = ActiveMQConnection.DEFAULT_BROKER_URL;
+    private static final String topicWeatherName = "prediction.Weather";
+    private static final String topicHotelName = "rate.Hotel";
+    private static final String subscriptionWeatherName = "DurableWeatherSubscription";
+    private static final String subscriptionHotelName = "DurableHotelSubscription";
+    private JsonStore jsonWeatherStore;
+    private JsonStore jsonHotelStore;
 
     public EventStoreBuilder(String rootDirectory) {
-        this.rootDirectory = rootDirectory;
+        jsonWeatherStore = new JsonStore(topicWeatherName, rootDirectory);
+        jsonHotelStore = new JsonStore(topicHotelName, rootDirectory);
     }
+
 
     public void start() {
         try {

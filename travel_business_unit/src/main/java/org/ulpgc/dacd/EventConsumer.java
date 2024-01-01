@@ -9,14 +9,19 @@ import org.ulpgc.dacd.model.Weather;
 import javax.jms.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EventConsumer {
+    private static final Logger LOGGER = Logger.getLogger(EventConsumer.class.getName());
+
     private static final String BROKER_URL = ActiveMQConnection.DEFAULT_BROKER_URL;
     private static final String WEATHER_TOPIC = "prediction.Weather";
     private static final String HOTEL_TOPIC = "rate.Hotel";
     private static final String DATABASE_URL = "jdbc:sqlite:datamart.db";
 
-    private DatamartConnection datamartConnection;
+    private final DatamartConnection datamartConnection;
+    private Hotel currentHotel;
 
     public EventConsumer() {
         datamartConnection = new DatamartConnection();
@@ -24,7 +29,8 @@ public class EventConsumer {
             datamartConnection.connect(DATABASE_URL);
             datamartConnection.createTable();
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error connecting to the database or creating table", e);
+            throw new RuntimeException("Failed to initialize EventConsumer", e);
         }
     }
 
@@ -41,34 +47,42 @@ public class EventConsumer {
             MessageConsumer weatherConsumer = session.createConsumer(weatherTopic);
             MessageConsumer hotelConsumer = session.createConsumer(hotelTopic);
 
-            weatherConsumer.setMessageListener(message -> {
-                try {
-                    String event = ((TextMessage) message).getText();
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    Weather weather = objectMapper.readValue(event, Weather.class);
-                    ObjectMapper objectMapper2 = new ObjectMapper();
-                    Hotel hotel = objectMapper2.readValue(event, Hotel.class);
-                    datamartConnection.save(weather, hotel);
-                } catch (JMSException | SQLException | IOException e) {
-                    e.printStackTrace();
-                }
-            });
+            weatherConsumer.setMessageListener(this::processWeatherMessage);
+            hotelConsumer.setMessageListener(this::processHotelMessage);
 
-            hotelConsumer.setMessageListener(message -> {
-                try {
-                    String event = ((TextMessage) message).getText();
-                    // Puedes manejar los eventos del hotel aquí si es necesario.
-                } catch (JMSException e) {
-                    e.printStackTrace();
-                }
-            });
+        } catch (JMSException e) {
+            LOGGER.log(Level.SEVERE, "JMS Exception while consuming events", e);
+            throw new RuntimeException("Failed to consume events", e);
+        }
+    }
 
-            while (true) {
-                Thread.sleep(1000);
+    private void processWeatherMessage(Message message) {
+        processMessage(message, "Weather");
+    }
+
+    private void processHotelMessage(Message message) {
+        processMessage(message, "Hotel");
+    }
+
+    private void processMessage(Message message, String messageType) {
+        try {
+            String event = ((TextMessage) message).getText();
+            ObjectMapper objectMapper = new ObjectMapper();
+            ObjectMapper objectMapper2 = new ObjectMapper();
+
+            if ("Weather".equals(messageType)) {
+                Weather weather = objectMapper.readValue(event, Weather.class);
+                if (currentHotel != null) {
+                    datamartConnection.save(weather, currentHotel);
+                } else {
+                    LOGGER.warning("Weather message received but no current hotel available");
+                }
+            } else if ("Hotel".equals(messageType)) {
+                currentHotel = objectMapper2.readValue(event, Hotel.class);
             }
 
-        } catch (JMSException | InterruptedException e) {
-            e.printStackTrace();
+        } catch (JMSException | SQLException | IOException e) {
+            LOGGER.log(Level.SEVERE, "Error processing message", e);
         }
     }
 }

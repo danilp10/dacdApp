@@ -32,6 +32,9 @@ public class Weather implements Serializable {
         this.predictionTime = predictionTime;
     }
 
+    public Weather() {
+    }
+
     public Instant getTs() {
             return ts;
         }
@@ -74,5 +77,9 @@ public class Weather implements Serializable {
 
     public Location getLocation() {
         return location;
+    }
+
+    public Instant getPredictionTime() {
+        return predictionTime;
     }
 }

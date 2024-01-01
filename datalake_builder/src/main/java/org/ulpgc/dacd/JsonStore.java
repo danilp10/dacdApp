@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +26,10 @@ public class JsonStore {
         String ssValue = jsonNode.get("ss").asText();
         String formattedDate = formatInstantDate(tsValue);
 
-        String directoryPath = Paths.get(rootDirectory, "event_store", topicName, ssValue).toString();
+        System.out.println("Root Directory: " + rootDirectory);
+        System.out.println("Topic Name: " + topicName);
+        System.out.println("SS Value: " + ssValue);
+        String directoryPath = Paths.get(rootDirectory, "datalake", topicName, ssValue).toString();
         String filePath = Paths.get(directoryPath, formattedDate + ".events").toString();
 
         try {

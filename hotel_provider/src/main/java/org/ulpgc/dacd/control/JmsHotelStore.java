@@ -18,11 +18,13 @@ public class JmsHotelStore implements HotelStore {
 
     private static String url = ActiveMQConnection.DEFAULT_BROKER_URL;
     private static String subject = "rate.Hotel";
-    private Set<String> sentKeys = new HashSet<>();
+    private Set<String> sentHotelCombinations = new HashSet<>();
 
     public void save(Hotel hotel) {
         try {
-            if (!containsKey(hotel.getKey())) {
+            String combination = hotel.getKey() + "-" + hotel.getCheckIn() + "-" + hotel.getCheckOut();
+
+            if (!sentHotelCombinations.contains(combination)) {
                 ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(url);
                 Connection connection = connectionFactory.createConnection();
                 connection.start();
@@ -38,17 +40,13 @@ public class JmsHotelStore implements HotelStore {
 
                 System.out.println("Hotel data sent to the queue.");
 
-                sentKeys.add(hotel.getKey());
+                sentHotelCombinations.add(combination);
 
                 connection.close();
             }
         } catch (JMSException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public boolean containsKey(String key) {
-        return sentKeys.contains(key);
     }
 
     public Gson prepareGson() {
@@ -65,3 +63,5 @@ public class JmsHotelStore implements HotelStore {
         }).create();
     }
 }
+
+

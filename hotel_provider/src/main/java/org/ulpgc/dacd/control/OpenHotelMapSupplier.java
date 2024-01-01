@@ -11,8 +11,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.time.Instant;
-import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +49,6 @@ public class OpenHotelMapSupplier {
             hotels.addAll(fetchHotelData(hotelKey, chkIn, chkOut, hotelName, location));
         }
 
-        System.out.println(hotels);
         return hotels;
     }
 
@@ -65,14 +62,14 @@ public class OpenHotelMapSupplier {
              Scanner scanner = new Scanner(inputStream)) {
             StringBuilder responseBody = new StringBuilder();
             scanner.forEachRemaining(responseBody::append);
-            List<Hotel> hotelList = parseHotelFromJson(responseBody.toString(), hotelName, hotelKey, location);
+            List<Hotel> hotelList = parseHotelFromJson(responseBody.toString(), hotelName, hotelKey, location, chkIn, chkOut);
             return hotelList;
         } finally {
             connection.disconnect();
         }
     }
 
-    private static List<Hotel> parseHotelFromJson(String json, String hotelName, String hotelKey, String location) {
+    private static List<Hotel> parseHotelFromJson(String json, String hotelName, String hotelKey, String location, Instant chkIn, Instant chkOut) {
         Gson gson = new GsonBuilder().registerTypeAdapter(Instant.class, new InstantAdapt()).create();
         JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
         List<Hotel> hotels = new ArrayList<>();
@@ -82,7 +79,7 @@ public class OpenHotelMapSupplier {
                 JsonArray ratesArray = resultObject.getAsJsonArray("rates");
                 for (int i = 0; i < ratesArray.size(); i++) {
                     JsonObject item = ratesArray.get(i).getAsJsonObject();
-                    Hotel hotel = createHotelObject(item, hotelName, hotelKey, location);
+                    Hotel hotel = createHotelObject(item, hotelName, hotelKey, location, chkIn, chkOut);
                     hotels.add(hotel);
                 }
             }
@@ -91,20 +88,12 @@ public class OpenHotelMapSupplier {
     }
 
 
-    private static Hotel createHotelObject(JsonObject item, String hotelName, String hotelKey, String location) {
+    private static Hotel createHotelObject(JsonObject item, String hotelName, String hotelKey, String location, Instant chkIn, Instant chkOut) {
         String code = item.get("code").getAsString();
         double rate = item.get("rate").getAsDouble();
         double tax = item.get("tax").getAsDouble();
         String rateName = item.get("name").getAsString();
-        Instant checkIn;
-        int currentHour = Instant.now().atZone(ZoneId.of("UTC")).getHour();
-        if (currentHour >= 17) {
-            checkIn = Instant.now().plus(12, ChronoUnit.HOURS).truncatedTo(ChronoUnit.DAYS);
-        } else {
-            checkIn = Instant.now().truncatedTo(ChronoUnit.DAYS);
-        }
-        Instant checkOut = checkIn.plus(5, ChronoUnit.DAYS);
 
-        return new Hotel(Instant.now().truncatedTo(ChronoUnit.SECONDS), hotelName, location, hotelKey, code, rateName, rate, tax, checkIn, checkOut, "rate.Hotel");
+        return new Hotel(Instant.now().truncatedTo(ChronoUnit.SECONDS), hotelName, location, hotelKey, code, rateName, rate, tax, chkIn, chkOut, "rate.Hotel");
     }
 }
