@@ -11,6 +11,8 @@ public class Location {
         this.city = city;
     }
 
+    public Location(){}
+
     public double getLat() {
         return lat;
     }

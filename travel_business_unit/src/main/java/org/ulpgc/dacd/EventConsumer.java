@@ -1,6 +1,7 @@
 package org.ulpgc.dacd;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.ulpgc.dacd.model.Hotel;
@@ -19,9 +20,7 @@ public class EventConsumer {
     private static final String WEATHER_TOPIC = "prediction.Weather";
     private static final String HOTEL_TOPIC = "rate.Hotel";
     private static final String DATABASE_URL = "jdbc:sqlite:datamart.db";
-
     private final DatamartConnection datamartConnection;
-    private Hotel currentHotel;
 
     public EventConsumer() {
         datamartConnection = new DatamartConnection();
@@ -68,17 +67,14 @@ public class EventConsumer {
         try {
             String event = ((TextMessage) message).getText();
             ObjectMapper objectMapper = new ObjectMapper();
-            ObjectMapper objectMapper2 = new ObjectMapper();
+            objectMapper.registerModule(new JavaTimeModule());
 
             if ("Weather".equals(messageType)) {
                 Weather weather = objectMapper.readValue(event, Weather.class);
-                if (currentHotel != null) {
-                    datamartConnection.save(weather, currentHotel);
-                } else {
-                    LOGGER.warning("Weather message received but no current hotel available");
-                }
+                datamartConnection.saveWeather(weather);
             } else if ("Hotel".equals(messageType)) {
-                currentHotel = objectMapper2.readValue(event, Hotel.class);
+                Hotel hotel = objectMapper.readValue(event, Hotel.class);
+                datamartConnection.saveHotel(hotel);
             }
 
         } catch (JMSException | SQLException | IOException e) {

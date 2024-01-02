@@ -32,8 +32,7 @@ public class Weather implements Serializable {
         this.predictionTime = predictionTime;
     }
 
-    public Weather() {
-    }
+    public Weather() {}
 
     public Instant getTs() {
             return ts;

@@ -25,7 +25,7 @@ public class HotelController extends TimerTask {
     public void run() {
         Instant currentDay = Instant.now().truncatedTo(ChronoUnit.DAYS);
         int currentHour = Instant.now().atZone(ZoneId.of("UTC")).getHour();
-        if (currentHour >= 17) {
+        if (currentHour >= 12) {
             currentDay = currentDay.plus(12, ChronoUnit.HOURS);
         }
 

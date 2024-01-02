@@ -30,6 +30,8 @@ public class Hotel {
         this.ss = ss;
     }
 
+    public Hotel(){}
+
     public Instant getTs() {
         return ts;
     }
