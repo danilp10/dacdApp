@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="datamart is now working">
-      <change afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/view/TravelAppGUI.java" afterDir="false" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="GUI implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/DatamartConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/DatamartConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/EventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/EventConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -399,7 +395,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704192533878</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="GUI implemented">
+      <option name="closed" value="true" />
+      <created>1704193937818</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1704193937818</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,7 +433,8 @@
     <MESSAGE value="business unit created" />
     <MESSAGE value="some problems with reading and writing of events solved" />
     <MESSAGE value="datamart is now working" />
-    <option name="LAST_COMMIT_MESSAGE" value="datamart is now working" />
+    <MESSAGE value="GUI implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
