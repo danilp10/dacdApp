@@ -1,4 +1,4 @@
-package org.ulpgc.dacd;
+package org.ulpgc.dacd.control;
 
 import org.ulpgc.dacd.model.Hotel;
 import org.ulpgc.dacd.model.Weather;

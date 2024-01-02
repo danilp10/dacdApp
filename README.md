@@ -88,7 +88,7 @@ The project follows several design principles and uses common patterns to ensure
 4. Run the application:
 
    ```bash
-   java -cp ".:lib/gson-2.8.8.jar" org.ulpgc.dacd.Main
+   java -cp ".:lib/gson-2.8.8.jar" org.ulpgc.dacd.control.Main
 
 ## Configuration:
 
@@ -111,7 +111,7 @@ Download the JAR Files: Download the JAR files from the assets section of the ch
 Configure API Key: Open the Main.java file and update the apikey variable with your OpenWeatherMap API key.
 
 Run the Application: Open a terminal, navigate to the directory containing the JAR files, and run the application using the following command:
-java -cp ".:lib/*" org.ulpgc.dacd.Main
+java -cp ".:lib/*" org.ulpgc.dacd.control.Main
 This command assumes that the JAR files and dependencies are in the same directory.
 
 

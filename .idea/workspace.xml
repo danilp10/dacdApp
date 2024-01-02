@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some problems with reading and writing of events solved">
-      <change afterPath="$PROJECT_DIR$/hotel_provider/src/main/resources/hotel.json" afterDir="false" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="datamart is now working">
+      <change afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/view/TravelAppGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/JsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/datalake_builder/src/main/java/org/ulpgc/dacd/JsonStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/Hotel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/DatamartConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/DatamartConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/EventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/EventConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/model/Weather.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/DatamartConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/DatamartConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/EventConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/EventConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,26 +69,13 @@
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\weather_provider" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainBackUp">
+  <component name="RunManager" selected="Application.TravelAppGUI">
     <configuration name="EventStoreBuilder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.EventStoreBuilder" />
       <module name="datalake_builder" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.Main" />
-      <module name="travel_business_unit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ulpgc.dacd.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -138,6 +123,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TravelAppGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.view.TravelAppGUI" />
+      <module name="travel_business_unit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="org.ulpgc.dacd.control.Main (2)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
       <module name="weather_provider" />
@@ -156,6 +154,19 @@
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
       <module name="weather_provider" />
       <option name="PROGRAM_PARAMETERS" value="3f7e30bbced203f4b907d03ba08d8ac6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.ulpgc.dacd.control.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
+      <module name="travel_business_unit" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
@@ -235,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TravelAppGUI" />
         <item itemvalue="Application.MainBackUp" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.org.ulpgc.dacd.view.Main" />
         <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
+        <item itemvalue="Application.org.ulpgc.dacd.view.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -380,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704125684314</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="datamart is now working">
+      <option name="closed" value="true" />
+      <created>1704192533878</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1704192533878</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -409,7 +428,8 @@
     <MESSAGE value="Hotel events sent to the broker and another durable subscription for hotel events has been created" />
     <MESSAGE value="business unit created" />
     <MESSAGE value="some problems with reading and writing of events solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="some problems with reading and writing of events solved" />
+    <MESSAGE value="datamart is now working" />
+    <option name="LAST_COMMIT_MESSAGE" value="datamart is now working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
