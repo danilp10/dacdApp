@@ -28,7 +28,7 @@ public class TravelAppGUI {
         destinationComboBox = new JComboBox<>(destinations);
         frame.add(destinationComboBox);
 
-        JButton showInfoButton = new JButton("Show Information");
+        JButton showInfoButton = new JButton("Mostrar Información");
         showInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

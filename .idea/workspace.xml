@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="GUI no longer disturbs the datamartConnection when stopped">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/view/TravelAppGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/view/TravelAppGUI.java" afterDir="false" />
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="GUI improved">
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -427,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704281303092</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="GUI improved">
+      <option name="closed" value="true" />
+      <created>1704306314207</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704306314207</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -473,7 +479,8 @@
     <MESSAGE value="Problem with the hours solved" />
     <MESSAGE value="Some details corrected" />
     <MESSAGE value="GUI no longer disturbs the datamartConnection when stopped" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI no longer disturbs the datamartConnection when stopped" />
+    <MESSAGE value="GUI improved" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI improved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
