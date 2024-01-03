@@ -2,7 +2,7 @@
 
 ## Front Page
 
-- **Tittle:** Weather Prediction Java Application
+- **Tittle:** Travel Java Application
 - **Subject:** Development of applications for Data Science (DACD)
 - **Course:** 2º
 - **Degree:** Degree in Data Science and Engineering (GCID)
