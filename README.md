@@ -1,4 +1,4 @@
-# Weather Prediction Java Application
+# Travel Java Application
 
 ## Front Page
 
