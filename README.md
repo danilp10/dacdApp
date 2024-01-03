@@ -141,5 +141,7 @@ java -cp ".:lib/*" org.ulpgc.dacd.control.Main
 This command assumes that the JAR files and dependencies are in the same directory.
 
 
-## Clarification:
+## Clarifications:
 The xotelo application may take between half an hour and an hour to perform the data query the first time the application is run.
+
+The hotel provider from 12 noon does not allow check-in until the next day, that is why from 12:00 UTC we consider the earliest check-in as the next day.
