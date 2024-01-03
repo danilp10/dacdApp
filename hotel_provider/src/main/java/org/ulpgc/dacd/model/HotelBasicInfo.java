@@ -1,18 +1,18 @@
 package org.ulpgc.dacd.model;
 
 public class HotelBasicInfo {
-    private String HotelName;
+    private String hotelName;
     private String key;
-    private String Location;
+    private String location;
 
-    public HotelBasicInfo(String HotelName, String key, String Location) {
-        this.HotelName = HotelName;
+    public HotelBasicInfo(String hotelName, String key, String location) {
+        this.hotelName = hotelName;
         this.key = key;
-        this.Location = Location;
+        this.location = location;
     }
 
     public String getHotelName() {
-        return HotelName;
+        return hotelName;
     }
 
     public String getHotelKey() {
@@ -20,7 +20,7 @@ public class HotelBasicInfo {
     }
 
     public String getLocation() {
-        return Location;
+        return location;
     }
 
 }

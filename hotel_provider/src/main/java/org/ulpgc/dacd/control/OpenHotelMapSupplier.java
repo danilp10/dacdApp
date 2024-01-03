@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class OpenHotelMapSupplier {
+public class OpenHotelMapSupplier implements HotelSupplier{
 
     public List<Hotel> getHotel(String filename, Instant chkIn, Instant chkOut) throws IOException {
         List<Hotel> hotels = new ArrayList<>();

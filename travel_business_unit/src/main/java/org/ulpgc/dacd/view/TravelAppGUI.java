@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
 public class TravelAppGUI {
 
@@ -22,12 +24,10 @@ public class TravelAppGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new FlowLayout());
 
-        // Combo box de destinos
         String[] destinations = {"Barcelona", "Paris", "Madrid", "Berlin", "Rome", "Brussels", "London", "Stockholm"};
         destinationComboBox = new JComboBox<>(destinations);
         frame.add(destinationComboBox);
 
-        // Botón para mostrar información
         JButton showInfoButton = new JButton("Mostrar Info");
         showInfoButton.addActionListener(new ActionListener() {
             @Override
@@ -37,7 +37,6 @@ public class TravelAppGUI {
         });
         frame.add(showInfoButton);
 
-        // Área de texto para mostrar información
         weatherHotelInfoArea = new JTextArea(10, 30);
         frame.add(new JScrollPane(weatherHotelInfoArea));
 
@@ -47,10 +46,8 @@ public class TravelAppGUI {
     private void displayInfoForSelectedDestination() {
         String selectedDestination = (String) destinationComboBox.getSelectedItem();
 
-        // Inicializar la conexión
         try (Connection conn = DriverManager.getConnection("jdbc:sqlite:datamart.db")) {
 
-            // Consulta para obtener el clima
             String weatherQuery = "SELECT predictionTime, rain, windSpeed, temp, humidity, clouds, lat, lon FROM weather WHERE city = ?";
             try (PreparedStatement stmt = conn.prepareStatement(weatherQuery)) {
                 stmt.setString(1, selectedDestination);
@@ -69,7 +66,6 @@ public class TravelAppGUI {
                             .append("\n");
                 }
 
-                // Consulta para obtener hoteles
                 String hotelQuery = "SELECT key, name, location, code, rateName, rate, tax, checkIn, checkOut FROM hotels WHERE location = ?";
                 try (PreparedStatement hotelStmt = conn.prepareStatement(hotelQuery)) {
                     hotelStmt.setString(1, selectedDestination);
@@ -77,12 +73,21 @@ public class TravelAppGUI {
 
                     StringBuilder hotelInfo = new StringBuilder("Disponibilidad de los hoteles de la zona:\n");
                     while (hotelRs.next()) {
+                        String checkInStr = hotelRs.getString("checkIn");
+                        String checkOutStr = hotelRs.getString("checkOut");
+
+                        Instant checkIn = Instant.parse(checkInStr);
+                        Instant checkOut = Instant.parse(checkOutStr);
+                        long nights = ChronoUnit.DAYS.between(checkIn.truncatedTo(ChronoUnit.DAYS), checkOut.truncatedTo(ChronoUnit.DAYS));
+                        double totalPrice = hotelRs.getDouble("rate") * nights + hotelRs.getDouble("tax");
+
                         hotelInfo.append("- ").append(hotelRs.getString("name"))
                                 .append(", Código: ").append(hotelRs.getString("code"))
-                                .append(", Tarifa: ").append(hotelRs.getDouble("rate"))
+                                .append(", Tarifa por noche: ").append(hotelRs.getDouble("rate"))
                                 .append(", Impuesto: ").append(hotelRs.getDouble("tax"))
-                                .append(", Check-In: ").append(hotelRs.getString("checkIn"))
-                                .append(", Check-Out: ").append(hotelRs.getString("checkOut"))
+                                .append(", Total para ").append(nights).append(" noches: ").append(totalPrice)
+                                .append(", Check-In: ").append(checkInStr)
+                                .append(", Check-Out: ").append(checkOutStr)
                                 .append("\n");
                     }
 
@@ -93,16 +98,6 @@ public class TravelAppGUI {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new TravelAppGUI();
-            }
-        });
     }
 }
 

@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="GUI implemented">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Problem with the hours solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/HotelBasicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/model/HotelBasicInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/control/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/view/TravelAppGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/travel_business_unit/src/main/java/org/ulpgc/dacd/view/TravelAppGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/weather_provider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapSupplier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +71,7 @@
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\weather_provider" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TravelAppGUI">
+  <component name="RunManager" selected="Application.org.ulpgc.dacd.control.Main (1)">
     <configuration name="EventStoreBuilder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.EventStoreBuilder" />
       <module name="datalake_builder" />
@@ -125,6 +131,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.ulpgc.dacd.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.ulpgc.dacd.control.Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
+      <module name="travel_business_unit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -214,19 +233,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="org.ulpgc.dacd.view.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.view.Main" />
-      <module name="travel_business_unit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ulpgc.dacd.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="practica1_dacd_weather (1)" />
       <method v="2">
@@ -242,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TravelAppGUI" />
         <item itemvalue="Application.MainBackUp" />
+        <item itemvalue="Application.org.ulpgc.dacd.control.Main (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TravelAppGUI" />
         <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
-        <item itemvalue="Application.org.ulpgc.dacd.view.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -403,7 +409,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704193937818</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Problem with the hours solved">
+      <option name="closed" value="true" />
+      <created>1704198369549</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1704198369549</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +425,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -434,7 +460,8 @@
     <MESSAGE value="some problems with reading and writing of events solved" />
     <MESSAGE value="datamart is now working" />
     <MESSAGE value="GUI implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI implemented" />
+    <MESSAGE value="Problem with the hours solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Problem with the hours solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

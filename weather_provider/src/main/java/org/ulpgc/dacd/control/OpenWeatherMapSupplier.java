@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class OpenWeatherMapSupplier {
+public class OpenWeatherMapSupplier implements WeatherSupplier {
     private final String apikey;
 
     public OpenWeatherMapSupplier(String apikey) {
