@@ -60,6 +60,9 @@ The project follows several design principles and uses common patterns to ensure
 ### Class diagrams
    ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/ecdbd6f6-b626-46c8-8b65-fbf50bedb8d9)
    ![imagen](https://github.com/danilp10/dacdFirstPractice/assets/97803190/0ae0bfa4-afcb-40e3-9467-07c697eb8018)
+   ![travel_unit](https://github.com/danilp10/dacdApp/assets/97803190/12fc0ad5-6482-4440-91ee-f373d4ef2f9a)
+   ![hotel_provider](https://github.com/danilp10/dacdApp/assets/97803190/ed5495ed-f52f-4302-960f-7900622eb2da)
+
 
 
 
