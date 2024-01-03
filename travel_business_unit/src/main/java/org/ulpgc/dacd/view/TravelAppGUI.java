@@ -28,7 +28,7 @@ public class TravelAppGUI {
         destinationComboBox = new JComboBox<>(destinations);
         frame.add(destinationComboBox);
 
-        JButton showInfoButton = new JButton("Mostrar Info");
+        JButton showInfoButton = new JButton("Show Information");
         showInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,9 +37,10 @@ public class TravelAppGUI {
         });
         frame.add(showInfoButton);
 
-        weatherHotelInfoArea = new JTextArea(10, 30);
+        weatherHotelInfoArea = new JTextArea(50, 150);
         frame.add(new JScrollPane(weatherHotelInfoArea));
 
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
     }
 
