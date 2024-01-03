@@ -21,7 +21,7 @@ public class TravelAppGUI {
     private void initializeGUI() {
         frame = new JFrame("Travel App");
         frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new FlowLayout());
 
         String[] destinations = {"Barcelona", "Paris", "Madrid", "Berlin", "Rome", "Brussels", "London", "Stockholm"};
