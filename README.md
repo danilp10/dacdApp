@@ -11,33 +11,45 @@
 
 ## Functionality Summary and Description
 
-The Java Weather Forecasting Application periodically obtains weather forecasts from the OpenWeatherMap API and sends them to the broker, allowing to read these forecasts through a subscription system. It provides multi-island forecasts, including temperature, precipitation probability, humidity, clouds and wind speed for the next 5 days at 12:00 p.m. In addition, forecasts in the form of events are written serialised in a directory, with one event per line.
+This Java application periodically obtains weather forecasts from the OpenWeatherMap API and hotel availability information and sends them to the broker, allowing these forecasts and information to be read through a subscription system. Provides forecasts for multiple cities, including temperature, chance of precipitation, humidity, clouds, and wind speed for the next 5 days at 12:00 p.m. It also provides detailed information on the availability of some of the best hotels in the area, along with their price per night, total price including taxes, number of nights and other variables for the next 5 days. Additionally, forecasts and hotel information are written as serialized events in a directory, with one event per line.
 
 ## Key Features
 
-- **API Integration:** The application fetches weather forecasts from the OpenWeatherMap API periodically.
+- **API Integration:** The application periodically obtains weather forecasts from the OpenWeatherMap API and information on the availability and price of some hotels from the Xotelo API.
 
-- **Message Broker:** Utilizes a message broker to send and manage weather forecasts, allowing access through a subscription system.
+- **Message Broker:** Uses a message broker to send and manage weather forecasts and hotel information, allowing access through a subscription system.
 
-- **Multi-Island Forecasts:** Provides forecasts for multiple islands, including temperature, precipitation probability, humidity, clouds, and wind speed for the next 5 days at 12:00 p.m.
+- **Multi-City Forecasts:** Provides multi-city forecasts including temperature, chance of precipitation, humidity, clouds and wind speed for the next 5 days at 12:00 PM.
 
-- **Event Serialization:** Serializes weather forecasts into events and stores them in a directory, with each event written on a separate line.
+- **Event Serialization:** Serializes weather forecasts and hotel information into events and stores them in a directory, with each event written on a separate line.
 
-- **Scheduled Fetching:** Automatically queries the API every 6 hours to update weather predictions.
+- **Scheduled fetch:** Automatically queries both APIs every 6 hours to update information.
+
+-**Datamart and GUI:** the broker's data is sent to a datamart in the form of an SQL database that stores the information of both providers. This information from the datamart is what is used for the implementation of the GUI, which, depending on the location, provides information on the availability of hotels in the area, along with the corresponding weather predictions.
 
 ## Project Structure
 
 The project is structured into different modules and packages:
 
-- `org.ulpgc.dacd.model:` Contains model classes representing locations and weather data.
+- `weather_provider: org.ulpgc.dacd.model:` Contains model classes representing locations and weather data.
 
-- `org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, storing data in the database, and managing JMS messaging.
+- `weather_provider: org.ulpgc.dacd.control:` Includes controllers for handling weather data, connecting to the API, storing data in the database, and managing JMS messaging.
 
 - `org.ulpgc.dacd.control.JmsWeatherStore:` Implements the `WeatherStore` interface for saving weather data to a JMS (Java Message Service) topic.
+  
+- `hotel_provider: org.ulpgc.dacd.model:` Contains model classes representing hotel data.
 
-- `org.ulpgc.dacd.control.EventStoreBuilder:` Listens for weather data on a JMS durable subscription and processes it using `JsonStore`.
+- `hotel_provider: org.ulpgc.dacd.control:` Includes controllers for handling hotel data, connecting to the API, storing data in the database, and managing JMS messaging.
 
-- `org.ulpgc.dacd.JsonStore:` Stores weather data in JSON format in a specific directory structure.
+- `org.ulpgc.dacd.control.JmsHotelStore:` Implements the `HotelStore` interface for saving hotel data to a JMS (Java Message Service) topic.
+
+- `org.ulpgc.dacd.control.EventStoreBuilder:` Listens for weather and hotel data on a JMS durable subscription and processes it using `JsonStore`.
+
+- `org.ulpgc.dacd.JsonStore:` Stores weather and hotel data in JSON format in a specific directory structure.
+
+- `travel_business_unit: org.ulpgc.dacd.view:` Contains the GUI.
+
+- `travel_business_unit: org.ulpgc.dacd.control:` Responsible of recieving the information of the broker and store it in the datamart.
 
 ## Design
 
@@ -56,16 +68,21 @@ The project follows several design principles and uses common patterns to ensure
 
 1. `WeatherController` depends on `OpenWeatherMapSupplier` and `JmsWeatherStore` to obtain and store weather data.
 2. `JmsWeatherStore` implements the `WeatherStore` interface and sends weather data to a JMS topic.
-3. `EventStoreBuilder` listens for weather data on a JMS durable subscription and processes it using `JsonStore`.
-4. `JsonStore` stores weather data in JSON format.
+3. `EventStoreBuilder` listens for weather and hotel data on a JMS durable subscription and processes it using `JsonStore`.
+4. `JsonStore` stores weather and hotel data in JSON format.
+5. `HotelController` depends on `OpenHotelMapSupplier` and `JmsHotelStore` to obtain and store hotel data.
+6. `JmsHotelStore` implements the `HotelStore` interface and sends hotel data to a JMS topic.
+7. `DatamartConnection` recieves weather and hotel information and stores it in a SQL database.
 
 ## Resources Used
 
 - Java Development Kit (JDK) 8 or higher
 - OpenWeatherMap API
+- Xotelo API
 - Message broker for subscription system (e.g., Apache ActiveMQ)
 - Git
 - Markdown
+- SQL 
 
 
 ## Getting Started
@@ -92,12 +109,16 @@ The project follows several design principles and uses common patterns to ensure
 
 ## Configuration:
 
-1. Open Main.java and update the apikey variable with your OpenWeatherMap API key.
-2. Verify and update the island locations.
+1. Open Main.java on weather_provider module and update the apikey variable with your OpenWeatherMap API key.
+2. Verify and update the city locations.
+3. Open Main.java on datalake_builder and update the rootDirectory with the directory you want the events to be written.
 
 ## Usage:
 
-The application will automatically run at specified intervals, querying the API for weather predictions for the next 5 days at 12:00 p.m. for each island. The data will be sent to the broker and written in a new directory.
+The application, "Travel App", allows users to select a travel destination from a drop-down list. Once a destination is selected, the application displays:
+Weather Predictions: Information about the weather of the selected destination, including details such as date, rainfall, wind speed, temperature, humidity, cloud cover and geographic coordinates.
+Hotel Information: The availability and details of hotels in the selected destination, including hotel name, code, nightly rate, tax, and check-in and check-out dates. Additionally, the total price of the stay is shown, calculated by multiplying the rate per night by the total number of nights.
+The application is presented using a simple and user-friendly graphical user interface (GUI).
 
 ## Adittional Information:
 This project includes a release for easy testing and execution. The release consists of pre-compiled JAR files and associated dependencies. Follow the steps below to run the application:
@@ -108,10 +129,14 @@ Choose the Latest Release: Select the latest release from the list. Releases are
 
 Download the JAR Files: Download the JAR files from the assets section of the chosen release. Ensure that you download the JAR files and any accompanying dependencies.
 
-Configure API Key: Open the Main.java file and update the apikey variable with your OpenWeatherMap API key.
+Configure API Key: Open the Main.java file on the weather_provider module and update the apikey variable with your OpenWeatherMap API key.
+
+Configure the rootDirectory: Open the Main.java file on the datalake_builder module and update the rootDirectory variable with the directory you want the events to be written in.
 
 Run the Application: Open a terminal, navigate to the directory containing the JAR files, and run the application using the following command:
 java -cp ".:lib/*" org.ulpgc.dacd.control.Main
 This command assumes that the JAR files and dependencies are in the same directory.
 
 
+## Clarification:
+The xotelo application may take between half an hour and an hour to perform the data query the first time the application is run.
