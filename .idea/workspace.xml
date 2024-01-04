@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="problem with hotel.json file solved">
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -458,7 +458,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704377045733</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="problem with hotel.json file solved">
+      <option name="closed" value="true" />
+      <created>1704377209017</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704377209017</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
