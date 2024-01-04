@@ -3,11 +3,11 @@ package org.ulpgc.dacd.control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
+import org.ulpgc.dacd.Main;
 import org.ulpgc.dacd.model.HotelBasicInfo;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,32 +15,28 @@ import java.util.List;
 
 public class HotelFileReader {
 
-    private String filePath;
-
-    public HotelFileReader(String filePath) {
-        this.filePath = filePath;
-    }
+    private static final String FILE = "hotel.json";
 
     public List<HotelBasicInfo> readHotels() throws IOException {
         List<HotelBasicInfo> hotels = new ArrayList<>();
+        URL resource = Main.class.getClassLoader().getResource(FILE);
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            StringBuilder jsonContent = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                jsonContent.append(line);
+
+        if (resource != null) {
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.openStream()))) {
+                StringBuilder jsonContent = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    jsonContent.append(line);
+                }
+
+                HotelBasicInfo[] hotelArray = prepareGson().fromJson(jsonContent.toString(), HotelBasicInfo[].class);
+                hotels = Arrays.asList(hotelArray);
             }
-
-            HotelBasicInfo[] hotelArray = prepareGson().fromJson(jsonContent.toString(), HotelBasicInfo[].class);
-            hotels = Arrays.asList(hotelArray);
         }
 
+
         return hotels;
-    }
-
-
-    private HotelBasicInfo parseHotelBasicInfo(String line) {
-        return prepareGson().fromJson(line, HotelBasicInfo.class);
     }
 
 

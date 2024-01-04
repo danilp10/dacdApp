@@ -10,8 +10,7 @@ public class MainBackUp {
     public static void main(String[] args) throws IOException {
         OpenHotelMapSupplier openHotelMapSupplier = new OpenHotelMapSupplier();
         JmsHotelStore jmsHotelStore = new JmsHotelStore();
-        String filePath = "hotel_provider/src/main/resources/hotel.json";
-        List<HotelBasicInfo> hotels = new HotelFileReader(filePath).readHotels();
+        List<HotelBasicInfo> hotels = new HotelFileReader().readHotels();
         HotelController hotelController = new HotelController(openHotelMapSupplier, jmsHotelStore, hotels);
 
         Timer timer = new Timer();
