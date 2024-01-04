@@ -3,7 +3,6 @@ package org.ulpgc.dacd.control;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
-import org.ulpgc.dacd.Main;
 import org.ulpgc.dacd.model.HotelBasicInfo;
 
 import java.io.*;
@@ -19,8 +18,7 @@ public class HotelFileReader {
 
     public List<HotelBasicInfo> readHotels() throws IOException {
         List<HotelBasicInfo> hotels = new ArrayList<>();
-        URL resource = Main.class.getClassLoader().getResource(FILE);
-
+        URL resource = HotelFileReader.class.getClassLoader().getResource(FILE);
 
         if (resource != null) {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.openStream()))) {
