@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="GUI improved">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +65,7 @@
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\weather_provider" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.org.ulpgc.dacd.control.Main (1)">
+  <component name="RunManager" selected="Application.MainBackUp">
     <configuration name="EventStoreBuilder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.EventStoreBuilder" />
       <module name="datalake_builder" />
@@ -240,8 +242,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.ulpgc.dacd.control.Main (1)" />
         <item itemvalue="Application.MainBackUp" />
+        <item itemvalue="Application.org.ulpgc.dacd.control.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TravelAppGUI" />
         <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
@@ -433,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704306314207</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="GUI improved">
+      <option name="closed" value="true" />
+      <created>1704306456252</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704306456252</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
