@@ -145,3 +145,5 @@ This command assumes that the JAR files and dependencies are in the same directo
 The xotelo application may take between half an hour and an hour to perform the data query the first time the application is run.
 
 The hotel provider from 12 noon does not allow check-in until the next day, that is why from 12:00 UTC we consider the earliest check-in as the next day.
+
+The first time the application is run we will see that no data is displayed in the GUI, this is because we have to wait for the datamart to be generated with the suppliers' data.
