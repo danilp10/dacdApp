@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="problem with hotel.json file solved">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="problem with hotel.json in OpenHotelMapSupplier solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +65,7 @@
       <recent name="org.ulpgc.dacd.control" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\hotel_provider\src\main\java\org\ulpgc\dacd\control" />
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather" />
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\weather_provider" />
     </key>
@@ -466,7 +472,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704377209017</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="problem with hotel.json file solved">
+      <option name="closed" value="true" />
+      <created>1704380949886</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704380949886</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -526,5 +540,11 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="filename.hash" />
+        <watch expression="filename.hash" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

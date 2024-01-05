@@ -37,7 +37,7 @@ public class HotelController extends TimerTask {
                 Instant checkout = checkIn.plus(j - i, ChronoUnit.DAYS);
 
                 try {
-                    String filename = "hotel.json";
+                    String filename = "hotel_provider/src/main/resources/hotel.json";
                     List<Hotel> hotelList = hotelSupplier.getHotel(filename, checkIn, checkout);
 
                     for (Hotel hotel : hotelList) {

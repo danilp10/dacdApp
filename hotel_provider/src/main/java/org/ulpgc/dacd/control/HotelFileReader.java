@@ -5,8 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
 import org.ulpgc.dacd.model.HotelBasicInfo;
 
-import java.io.*;
-import java.net.URL;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,29 +15,28 @@ import java.util.List;
 
 public class HotelFileReader {
 
-    private static final String FILE = "hotel.json";
+    private String filePath;
+
+    public HotelFileReader(String filePath) {
+        this.filePath = filePath;
+    }
 
     public List<HotelBasicInfo> readHotels() throws IOException {
         List<HotelBasicInfo> hotels = new ArrayList<>();
-        URL resource = HotelFileReader.class.getClassLoader().getResource(FILE);
 
-        if (resource != null) {
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.openStream()))) {
-                StringBuilder jsonContent = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    jsonContent.append(line);
-                }
-
-                HotelBasicInfo[] hotelArray = prepareGson().fromJson(jsonContent.toString(), HotelBasicInfo[].class);
-                hotels = Arrays.asList(hotelArray);
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder jsonContent = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonContent.append(line);
             }
-        }
 
+            HotelBasicInfo[] hotelArray = prepareGson().fromJson(jsonContent.toString(), HotelBasicInfo[].class);
+            hotels = Arrays.asList(hotelArray);
+        }
 
         return hotels;
     }
-
 
     private Gson prepareGson() {
         return new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Instant.class, new TypeAdapter<Instant>() {
