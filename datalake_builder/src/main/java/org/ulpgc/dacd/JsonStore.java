@@ -26,7 +26,7 @@ public class JsonStore {
         String ssValue = jsonNode.get("ss").asText();
         String formattedDate = formatInstantDate(tsValue);
 
-        String directoryPath = Paths.get(rootDirectory, "datalake", topicName, ssValue).toString();
+        String directoryPath = Paths.get(rootDirectory, "datalake", "eventstore", topicName, ssValue).toString();
         String filePath = Paths.get(directoryPath, formattedDate + ".events").toString();
 
         try {

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some problems reading the file solved">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Exit on close added to the GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
@@ -71,7 +71,47 @@
       <module name="datalake_builder" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.Main" />
+      <module name="datalake_builder" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\DANI\IdeaProjects\rootDirectory" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.Main" />
+      <module name="travel_business_unit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainBackUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.MainBackUp" />
+      <module name="practica1_dacd_weather" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -85,7 +125,7 @@
       <option name="PROGRAM_PARAMETERS" value="C:\Users\DANI\IdeaProjects\rootDirectory" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,9 +133,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainBackUp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.MainBackUp" />
-      <module name="practica1_dacd_weather" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.Main" />
+      <module name="datalake_builder" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\DANI\IdeaProjects\rootDirectory" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
@@ -132,19 +173,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="org.ulpgc.dacd.control.Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
-      <module name="travel_business_unit" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="org.ulpgc.dacd.control.Main (2)" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
       <module name="weather_provider" />
@@ -159,7 +187,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="org.ulpgc.dacd.control.Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
+      <module name="weather_provider" />
+      <option name="PROGRAM_PARAMETERS" value="3f7e30bbced203f4b907d03ba08d8ac6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="org.ulpgc.dacd.control.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
+      <module name="weather_provider" />
+      <option name="PROGRAM_PARAMETERS" value="3f7e30bbced203f4b907d03ba08d8ac6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="org.ulpgc.dacd.control.Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
       <module name="weather_provider" />
       <option name="PROGRAM_PARAMETERS" value="3f7e30bbced203f4b907d03ba08d8ac6" />
@@ -243,8 +299,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainBackUp" />
-        <item itemvalue="Application.org.ulpgc.dacd.control.Main (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.TravelAppGUI" />
         <item itemvalue="Application.org.ulpgc.dacd.control.Main" />
       </list>
@@ -483,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704455129095</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Exit on close added to the GUI">
+      <option name="closed" value="true" />
+      <created>1704720930484</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1704720930484</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -533,7 +597,8 @@
     <MESSAGE value="some jar problems solved" />
     <MESSAGE value="problem with hotel.json file solved" />
     <MESSAGE value="some problems reading the file solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="some problems reading the file solved" />
+    <MESSAGE value="Exit on close added to the GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exit on close added to the GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
