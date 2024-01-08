@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Exit on close added to the GUI">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="Detail solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
@@ -65,7 +65,7 @@
       <recent name="C:\Users\DANI\Downloads\practica1_dacd_weather\weather_provider" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainBackUp">
+  <component name="RunManager" selected="Application.org.ulpgc.dacd.control.Main">
     <configuration name="EventStoreBuilder" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.EventStoreBuilder" />
       <module name="datalake_builder" />
@@ -547,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704720930484</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Detail solved">
+      <option name="closed" value="true" />
+      <created>1704730876015</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1704730876015</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -598,7 +606,8 @@
     <MESSAGE value="problem with hotel.json file solved" />
     <MESSAGE value="some problems reading the file solved" />
     <MESSAGE value="Exit on close added to the GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exit on close added to the GUI" />
+    <MESSAGE value="Detail solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Detail solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
