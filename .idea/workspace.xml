@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="problem with hotel.json in OpenHotelMapSupplier solved">
+    <list default="true" id="c887a16b-1a6b-43a8-85aa-6ab303d355ad" name="Changes" comment="some problems reading the file solved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/HotelFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/MainBackUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/hotel_provider/src/main/java/org/ulpgc/dacd/control/OpenHotelMapSupplier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -480,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704380949886</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="some problems reading the file solved">
+      <option name="closed" value="true" />
+      <created>1704455129095</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704455129095</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -529,7 +532,8 @@
     <MESSAGE value="GUI improved" />
     <MESSAGE value="some jar problems solved" />
     <MESSAGE value="problem with hotel.json file solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="problem with hotel.json file solved" />
+    <MESSAGE value="some problems reading the file solved" />
+    <option name="LAST_COMMIT_MESSAGE" value="some problems reading the file solved" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

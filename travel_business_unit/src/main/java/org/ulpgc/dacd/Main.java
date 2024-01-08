@@ -1,5 +1,6 @@
-package org.ulpgc.dacd.control;
+package org.ulpgc.dacd;
 
+import org.ulpgc.dacd.control.EventConsumer;
 import org.ulpgc.dacd.view.TravelAppGUI;
 import javax.swing.*;
 
